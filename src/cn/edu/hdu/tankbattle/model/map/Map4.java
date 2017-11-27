@@ -1,17 +1,10 @@
 package cn.edu.hdu.tankbattle.model.map;
 
-import java.util.Vector;
-
 import cn.edu.hdu.tankbattle.model.Water;
 
 public class Map4 extends Map {
 	
 	public void initMaps() {
-		
-	}
-
-	public Map4() {
-		Vector<Water> waters = this.getWaters();
 		for (int i = 0; i < 25; i++) {
 			if (i == 11 || i == 12 || i == 13)
 				continue;
@@ -57,4 +50,5 @@ public class Map4 extends Map {
 		Water = new Water(310, 310);
 		waters.add(Water);
 	}
+
 }

@@ -1,17 +1,10 @@
 package cn.edu.hdu.tankbattle.model.map;
 
-import java.util.Vector;
 
 import cn.edu.hdu.tankbattle.model.Brick;
 
 public class Map3 extends Map {
 	public void initMaps() {
-		
-	}
-	
-	public Map3() {
-		
-		Vector<Brick> bricks = this.getBricks();
 		for (int i = 0; i < 25; i++) {
 			Brick Brick = new Brick(20 * i + 60, 60);
 			bricks.add(Brick);
@@ -53,4 +46,5 @@ public class Map3 extends Map {
 		Brick = new Brick(310, 310);
 		bricks.add(Brick);
 	}
+	
 }

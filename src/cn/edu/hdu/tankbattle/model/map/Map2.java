@@ -1,16 +1,9 @@
 package cn.edu.hdu.tankbattle.model.map;
 
-import java.util.Vector;
-
 import cn.edu.hdu.tankbattle.model.Iron;
 
 public class Map2 extends Map {
 	public void initMaps() {
-		
-	}
-
-	public Map2() {
-		Vector<Iron> irons = this.getIrons();
 		for (int i = 0; i < 25; i++) {
 			if (i % 2 == 0)
 				continue;
@@ -50,4 +43,5 @@ public class Map2 extends Map {
 		iron = new Iron(310, 310);
 		irons.add(iron);
 	}
+
 }

@@ -13,24 +13,14 @@ import cn.edu.hdu.tankbattle.model.Water;
  *
  */
 public abstract class Map {
-	/**
-	 * 地图上的砖块
-	 */
+	// 地图上的砖块
 	protected Vector<Brick> bricks;
-	/**
-	 * 地图上的铁块
-	 */
+	// 地图上的铁块
 	protected Vector<Iron> irons;
-	/**
-	 * 地图上的水
-	 */
+	// 地图上的水
 	protected Vector<Water> waters;
 
-	/**
-	 * 构造方法
-	 */
 	public Map() {
-		// TODO Auto-generated constructor stub
 		bricks = new Vector<Brick>();
 		irons = new Vector<Iron>();
 		waters = new Vector<Water>();
@@ -42,15 +32,13 @@ public abstract class Map {
 	public Vector<Brick> getBricks() {
 		return bricks;
 	}
-
 	public void setBricks(Vector<Brick> bricks) {
 		this.bricks = bricks;
 	}
-
+	
 	public Vector<Iron> getIrons() {
 		return irons;
 	}
-
 	public void setIrons(Vector<Iron> irons) {
 		this.irons = irons;
 	}
@@ -58,9 +46,7 @@ public abstract class Map {
 	public Vector<Water> getWaters() {
 		return waters;
 	}
-
 	public void setWaters(Vector<Water> waters) {
 		this.waters = waters;
 	}
-
 }
