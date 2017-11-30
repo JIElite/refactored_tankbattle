@@ -13,39 +13,31 @@ public class Map2 extends Map {
 				continue;
 			if (i == 11 || i == 12 || i == 13)
 				continue;
-			Iron iron = new Iron(20 * i + 60, 60);
-			irons.add(iron);
+			irons.add(new Iron(20*i+60, 60));
 		}
 		for (int i = 0; i < 25; i++) {
 			if (i == 11 || i == 12 || i == 13)
 				continue;
-			Iron iron = new Iron(20 * i + 60, 540);
-			irons.add(iron);
+			irons.add(new Iron(20*i+60, 540));
 		}
 		for (int i = 0; i < 25; i++) {
 			if (i % 2 == 0)
 				continue;
 			if (i == 11 || i == 12 || i == 13)
 				continue;
-			Iron iron = new Iron(60, 20 * i + 60);
-			irons.add(iron);
+			irons.add(new Iron(60, 20*i+60));
 		}
 		for (int i = 0; i < 25; i++) {
 			if (i % 2 == 0)
 				continue;
 			if (i == 11 || i == 12 || i == 13)
 				continue;
-			Iron iron = new Iron(540, 20 * i + 60);
-			irons.add(iron);
+			irons.add(new Iron(540, 20*i+60));
 		}
-		Iron iron = new Iron(290, 290);
-		irons.add(iron);
-		iron = new Iron(310, 290);
-		irons.add(iron);
-		iron = new Iron(290, 310);
-		irons.add(iron);
-		iron = new Iron(310, 310);
-		irons.add(iron);
+		irons.add(new Iron(290, 290));
+		irons.add(new Iron(310, 290));
+		irons.add(new Iron(290, 310));
+		irons.add(new Iron(310, 310));
 	}
 	
 	public void initWater() {
