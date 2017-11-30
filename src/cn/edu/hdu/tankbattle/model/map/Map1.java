@@ -18,13 +18,29 @@ public class Map1 extends Map {
 	 * 构造方法
 	 */
 	public void initMaps() {
+		this.initBricks();
+		this.initIron();
+		this.initWater();
+	}
+			
+	public void initBricks() {
 		for (int i = 0; i < 30; i++) {
 			if (i % 2 == 0)
 				continue;
 			Brick brick = new Brick(20 * i + 10, 470);
 			bricks.add(brick);
 		}
-		// 画出河流
+		Brick brick = new Brick(200, 290);
+		bricks.add(brick);
+		brick = new Brick(220, 290);
+		bricks.add(brick);
+		brick = new Brick(200, 310);
+		bricks.add(brick);
+		brick = new Brick(220, 310);
+		bricks.add(brick);
+	}
+	
+	public void initWater() {
 		for (int i = 0; i < 25; i++) {
 			Water water = new Water(20 * i + 60, 130);
 			waters.add(water);
@@ -39,7 +55,17 @@ public class Map1 extends Map {
 			Water water = new Water(20 * i + 60, 60);
 			waters.add(water);
 		}
-		// 画出铁块
+		Water water = new Water(380, 290);
+		waters.add(water);
+		water = new Water(400, 290);
+		waters.add(water);
+		water = new Water(380, 310);
+		waters.add(water);
+		water = new Water(400, 310);
+		waters.add(water);
+	}
+	
+	public void initIron() {
 		for (int i = 0; i < 29; i++) {
 			if (i % 2 == 0 || i % 3 == 0)
 				continue;
@@ -76,22 +102,5 @@ public class Map1 extends Map {
 		iron = new Iron(570, 400);
 		irons.add(iron);
 
-		Brick brick = new Brick(200, 290);
-		bricks.add(brick);
-		brick = new Brick(220, 290);
-		bricks.add(brick);
-		brick = new Brick(200, 310);
-		bricks.add(brick);
-		brick = new Brick(220, 310);
-		bricks.add(brick);
-
-		Water water = new Water(380, 290);
-		waters.add(water);
-		water = new Water(400, 290);
-		waters.add(water);
-		water = new Water(380, 310);
-		waters.add(water);
-		water = new Water(400, 310);
-		waters.add(water);
 	}
 }
