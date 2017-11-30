@@ -164,22 +164,6 @@ public class Tank extends Stuff {
 	}
 
 	/**
-	 * 坦克往后走
-	 */
-	public void goBack() {
-		switch (this.getDirect()) {
-		case NORTH:
-			this.goSouth();
-		case SOUTH:
-			this.goNorth();
-		case WEST:
-			this.goEast();
-		case EAST:
-			this.goWest();
-		}
-	}
-
-	/**
 	 * 判断坦克是否与另一个事物重叠
 	 * 
 	 * @param stuff
