@@ -21,7 +21,7 @@ public class Bomb {
 	 */
 	private int y;
 	/**
-	 * 炸弹的生命值
+	 * 炸弹的動畫持續時間
 	 */
 	private int lifeTime = 30;
 	/**
@@ -42,9 +42,6 @@ public class Bomb {
 		this.y = y;
 	}
 
-	/**
-	 * 生命值减少，生命值越多，在游戏面板的显示时间越长
-	 */
 	public void lifeDown() {
 		if (lifeTime > 0) {
 			lifeTime--;
@@ -54,7 +51,6 @@ public class Bomb {
 	public int getX() {
 		return x;
 	}
-
 	public void setX(int x) {
 		this.x = x;
 	}
@@ -62,7 +58,6 @@ public class Bomb {
 	public int getY() {
 		return y;
 	}
-
 	public void setY(int y) {
 		this.y = y;
 	}
