@@ -7,15 +7,15 @@ import java.util.Vector;
 
 import javax.swing.JPanel;
 
+import cn.edu.hdu.tankbattle.constant.Direction;
+import cn.edu.hdu.tankbattle.constant.StuffType;
 import cn.edu.hdu.tankbattle.model.Bomb;
 import cn.edu.hdu.tankbattle.model.Brick;
 import cn.edu.hdu.tankbattle.model.Bullet;
-import cn.edu.hdu.tankbattle.model.Direction;
 import cn.edu.hdu.tankbattle.model.EnemyTank;
 import cn.edu.hdu.tankbattle.model.Iron;
 import cn.edu.hdu.tankbattle.model.MyTank;
 import cn.edu.hdu.tankbattle.model.Stuff;
-import cn.edu.hdu.tankbattle.model.StuffType;
 import cn.edu.hdu.tankbattle.model.Tank;
 import cn.edu.hdu.tankbattle.model.TankGameImages;
 import cn.edu.hdu.tankbattle.model.Water;

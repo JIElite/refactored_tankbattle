@@ -2,6 +2,8 @@ package cn.edu.hdu.tankbattle.model;
 
 import java.util.Vector;
 
+import cn.edu.hdu.tankbattle.constant.Direction;
+import cn.edu.hdu.tankbattle.constant.StuffType;
 import cn.edu.hdu.tankbattle.view.GamePanel;
 
 /**

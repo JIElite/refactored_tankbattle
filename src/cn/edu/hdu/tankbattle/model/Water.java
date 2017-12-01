@@ -1,5 +1,7 @@
 package cn.edu.hdu.tankbattle.model;
 
+import cn.edu.hdu.tankbattle.constant.StuffType;
+
 /**
  * 水对象，继承自东西类
  * 

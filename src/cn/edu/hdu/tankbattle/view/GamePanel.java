@@ -10,10 +10,10 @@ import java.awt.event.KeyListener;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import cn.edu.hdu.tankbattle.constant.Direction;
 import cn.edu.hdu.tankbattle.control.Control;
 import cn.edu.hdu.tankbattle.control.Draw;
 import cn.edu.hdu.tankbattle.control.UpdateThread;
-import cn.edu.hdu.tankbattle.model.Direction;
 import cn.edu.hdu.tankbattle.model.GameResource;
 import cn.edu.hdu.tankbattle.model.MyTank;
 import cn.edu.hdu.tankbattle.model.TankGameImages;

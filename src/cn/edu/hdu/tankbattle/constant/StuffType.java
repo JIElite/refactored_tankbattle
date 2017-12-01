@@ -1,4 +1,4 @@
-package cn.edu.hdu.tankbattle.model;
+package cn.edu.hdu.tankbattle.constant;
 
 public class StuffType {
 	/**

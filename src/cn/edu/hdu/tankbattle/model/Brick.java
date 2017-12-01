@@ -1,5 +1,7 @@
 package cn.edu.hdu.tankbattle.model;
 
+import cn.edu.hdu.tankbattle.constant.StuffType;
+
 /**
  * 砖块类，由东西类继承而来
  * 
