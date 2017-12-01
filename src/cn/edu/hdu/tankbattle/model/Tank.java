@@ -17,15 +17,6 @@ import cn.edu.hdu.tankbattle.view.GamePanel;
  */
 public class Tank extends Stuff{
 	/**
-	 * 我的坦克
-	 */
-	public static final int MY = 0;
-	/**
-	 * 敌人坦克
-	 */
-	public static final int ENEMY = 1;
-
-	/**
 	 * 坦克的移动速度
 	 */
 	private int speed = 4; // 坦克移动速度
