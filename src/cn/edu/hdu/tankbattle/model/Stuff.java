@@ -31,22 +31,7 @@ public class Stuff {
 	 * 地图
 	 */
 	public static final int MAP = 4;
-	/**
-	 * 方向北
-	 */
-	public static final int NORTH = 0;
-	/**
-	 * 方向南
-	 */
-	public static final int SOUTH = 1;
-	/**
-	 * 方向西
-	 */
-	public static final int WEST = 2;
-	/**
-	 * 方向东
-	 */
-	public static final int EAST = 3;
+
 	/**
 	 * x坐标
 	 */

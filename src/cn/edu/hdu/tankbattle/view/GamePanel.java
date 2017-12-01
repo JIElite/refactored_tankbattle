@@ -13,9 +13,9 @@ import javax.swing.JPanel;
 import cn.edu.hdu.tankbattle.control.Control;
 import cn.edu.hdu.tankbattle.control.Draw;
 import cn.edu.hdu.tankbattle.control.UpdateThread;
+import cn.edu.hdu.tankbattle.model.Direction;
 import cn.edu.hdu.tankbattle.model.GameResource;
 import cn.edu.hdu.tankbattle.model.MyTank;
-import cn.edu.hdu.tankbattle.model.Tank;
 import cn.edu.hdu.tankbattle.model.TankGameImages;
 
 /**
@@ -142,27 +142,27 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener {
 			}
 
 			if ((e.getKeyCode() == KeyEvent.VK_UP) && myTank.isLive()) {
-				myTank.setDirect(Tank.NORTH);
+				myTank.setDirect(Direction.NORTH);
 				control.setUp(true);
 				control.setDown(false);
 				control.setLeft(false);
 				control.setRight(false);
 			} else if ((e.getKeyCode() == KeyEvent.VK_DOWN) && myTank.isLive()) {
-				myTank.setDirect(Tank.SOUTH);
+				myTank.setDirect(Direction.SOUTH);
 				control.setUp(false);
 				control.setDown(true);
 				control.setLeft(false);
 				control.setRight(false);
 			} else if ((e.getKeyCode() == KeyEvent.VK_LEFT) && myTank.isLive()
 					&& myTank.getY() <= 580) {
-				myTank.setDirect(Tank.WEST);
+				myTank.setDirect(Direction.WEST);
 				control.setUp(false);
 				control.setDown(false);
 				control.setLeft(true);
 				control.setRight(false);
 			} else if ((e.getKeyCode() == KeyEvent.VK_RIGHT) && myTank.isLive()
 					&& myTank.getY() <= 580) {
-				myTank.setDirect(Tank.EAST);
+				myTank.setDirect(Direction.EAST);
 				control.setUp(false);
 				control.setDown(false);
 				control.setLeft(false);

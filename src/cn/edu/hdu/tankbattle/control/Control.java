@@ -5,6 +5,7 @@ import java.util.Vector;
 import cn.edu.hdu.tankbattle.model.Bomb;
 import cn.edu.hdu.tankbattle.model.Brick;
 import cn.edu.hdu.tankbattle.model.Bullet;
+import cn.edu.hdu.tankbattle.model.Direction;
 import cn.edu.hdu.tankbattle.model.EnemyTank;
 import cn.edu.hdu.tankbattle.model.GameResource;
 import cn.edu.hdu.tankbattle.model.Iron;
@@ -266,12 +267,12 @@ public class Control {
 				if (enemyTank.Overlap(bricks.get(j), 20 + 10) == true) {
 					// 判断前面挡住砖块是否能被子弹打掉，能的话，就开炮
 					if ((Math.abs(bricks.get(j).getX() - enemyTank.getX()) <= 10 && (enemyTank
-							.getDirect() == EnemyTank.SOUTH || enemyTank
-							.getDirect() == EnemyTank.NORTH))
+							.getDirect() == Direction.SOUTH || enemyTank
+							.getDirect() == Direction.NORTH))
 							|| (Math.abs(bricks.get(j).getY()
 									- enemyTank.getY()) <= 10 && (enemyTank
-									.getDirect() == EnemyTank.EAST || enemyTank
-									.getDirect() == EnemyTank.WEST))) {
+									.getDirect() == Direction.EAST || enemyTank
+									.getDirect() == Direction.WEST))) {
 						enemyTank.setFrontInfomation(Stuff.BRICK);
 						enemyTank.setOverlapYes(true);
 						enemyTank.setShot(true);
@@ -329,7 +330,7 @@ public class Control {
 				this.beKilled++;
 				if (this.myTankNum >= 1) { // 如果还有我的坦克就创建一个，刚开始面板上就创建了一个我的坦克，所以大于等于
 											// 1
-					MyTank myTanktemp = new MyTank(300, 620, Tank.NORTH); // 创建一个我的坦克
+					MyTank myTanktemp = new MyTank(300, 620, Direction.NORTH); // 创建一个我的坦克
 					myTanks.add(myTanktemp);
 				}
 			}
@@ -361,7 +362,7 @@ public class Control {
 					enemys.remove(enemy); // 敌人坦克死亡后马上产生一个新的敌人坦克
 					if (this.enemyTankNum >= 5) { // 如果还有敌人坦克，刚开始时面板上就创建了3个，所以大于等于3
 						EnemyTank enemyTank = new EnemyTank((r) * 140 + 20,
-								-20, Tank.SOUTH); // 创建一个敌人坦克对象
+								-20, Direction.SOUTH); // 创建一个敌人坦克对象
 						enemyTank.setLocation(r);
 						enemys.add(enemyTank); // 将该坦克加入敌人坦克容器中
 					}
@@ -482,7 +483,7 @@ public class Control {
 		}
 
 		for (int i = 0; i < 5; i++) {
-			EnemyTank enemy = new EnemyTank((i) * 140 + 20, -20, Tank.SOUTH); // 创建一个敌人坦克对象
+			EnemyTank enemy = new EnemyTank((i) * 140 + 20, -20, Direction.SOUTH); // 创建一个敌人坦克对象
 			enemy.setLocation(i);
 			resource.getEnemys().add(enemy); // 将该坦克加入敌人坦克容器中 //将该子弹加入该坦克的子弹容器中
 		}
@@ -512,12 +513,12 @@ public class Control {
 			resource.setMap(new Map5());
 		}
 		for (int i = 0; i < 5; i++) {
-			EnemyTank enemy = new EnemyTank((i) * 140 + 20, -20, Tank.SOUTH); // 创建一个敌人坦克对象
+			EnemyTank enemy = new EnemyTank((i) * 140 + 20, -20, Direction.SOUTH); // 创建一个敌人坦克对象
 			enemy.setLocation(i);
 			resource.getEnemys().add(enemy); // 将该坦克加入敌人坦克容器中 //将该子弹加入该坦克的子弹容器中
 		}
 		for (int i = 0; i < 1; i++) {
-			MyTank myTank = new MyTank(300, 620, Tank.NORTH); // 创建一个我的坦克
+			MyTank myTank = new MyTank(300, 620, Direction.NORTH); // 创建一个我的坦克
 			resource.getMyTanks().add(myTank); // 将我的坦克加入我的坦克容器中
 		}
 	}

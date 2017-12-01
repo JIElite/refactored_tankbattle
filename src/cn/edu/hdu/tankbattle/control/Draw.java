@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import cn.edu.hdu.tankbattle.model.Bomb;
 import cn.edu.hdu.tankbattle.model.Brick;
 import cn.edu.hdu.tankbattle.model.Bullet;
+import cn.edu.hdu.tankbattle.model.Direction;
 import cn.edu.hdu.tankbattle.model.EnemyTank;
 import cn.edu.hdu.tankbattle.model.Iron;
 import cn.edu.hdu.tankbattle.model.MyTank;
@@ -41,17 +42,18 @@ public class Draw {
 		switch (stuff.getType()) {
 		case Stuff.TANK:
 			// TODO refactor downcasting issue
+			
 			switch (((Tank)stuff).getDirect()) { // 判断所朝的方向
-			case Stuff.NORTH:
+			case Direction.NORTH:
 				this.drawNorth(g, stuff, panel);
 				break;
-			case Stuff.SOUTH:
+			case Direction.SOUTH:
 				this.drawSouth(g, stuff, panel);
 				break;
-			case Stuff.WEST:
+			case Direction.WEST:
 				this.drawWest(g, stuff, panel);
 				break;
-			case Stuff.EAST:
+			case Direction.EAST:
 				this.drawEast(g, stuff, panel);
 				break;
 			}
@@ -223,9 +225,9 @@ public class Draw {
 		Image image;
 		if (tank.getType2() == Tank.MY) {
 			g.setColor(Color.green);
-			image = TankGameImages.myTankImg[Stuff.NORTH];// 初始化图片
+			image = TankGameImages.myTankImg[Direction.NORTH];// 初始化图片
 		} else {
-			image = TankGameImages.enemyTankImg[Stuff.NORTH];
+			image = TankGameImages.enemyTankImg[Direction.NORTH];
 			g.setColor(Color.gray);
 		}
 		g.drawImage(image, tank.getX() - 20, tank.getY() - 20, 40, 40, panel);
@@ -260,9 +262,9 @@ public class Draw {
 		Image image;
 		if (tank.getType2() == Tank.MY) {
 			g.setColor(Color.green);
-			image = TankGameImages.myTankImg[Stuff.SOUTH];// 初始化图片
+			image = TankGameImages.myTankImg[Direction.SOUTH];// 初始化图片
 		} else {
-			image = TankGameImages.enemyTankImg[Stuff.SOUTH];
+			image = TankGameImages.enemyTankImg[Direction.SOUTH];
 			g.setColor(Color.gray);
 		}
 		g.drawImage(image, tank.getX() - 20, tank.getY() - 20, 40, 40, panel);
@@ -296,10 +298,10 @@ public class Draw {
 		 */
 		Image image;
 		if (tank.getType2() == Tank.MY) {
-			image = TankGameImages.myTankImg[Stuff.WEST];// 初始化图片
+			image = TankGameImages.myTankImg[Direction.WEST];// 初始化图片
 			g.setColor(Color.green);
 		} else {
-			image = TankGameImages.enemyTankImg[Stuff.WEST];
+			image = TankGameImages.enemyTankImg[Direction.WEST];
 			g.setColor(Color.gray);
 		}
 		g.drawImage(image, tank.getX() - 20, tank.getY() - 20, 40, 40, panel);
@@ -333,10 +335,10 @@ public class Draw {
 		 */
 		Image image;
 		if (tank.getType2() == Tank.MY) {
-			image = TankGameImages.myTankImg[Stuff.EAST];// 初始化图片
+			image = TankGameImages.myTankImg[Direction.EAST];// 初始化图片
 			g.setColor(Color.green);
 		} else {
-			image = TankGameImages.enemyTankImg[Stuff.EAST];
+			image = TankGameImages.enemyTankImg[Direction.EAST];
 			g.setColor(Color.gray);
 		}
 		g.drawImage(image, tank.getX() - 20, tank.getY() - 20, 40, 40, panel);
@@ -354,15 +356,15 @@ public class Draw {
 	public void drawRight(Graphics g, GamePanel tgp) {
 		for (int i = 0; i < tgp.getControl().getEnemyTankNum(); i++) {
 			if (i >= 4) {
-				g.drawImage(TankGameImages.enemyTankImg[Stuff.NORTH],
+				g.drawImage(TankGameImages.enemyTankImg[Direction.NORTH],
 						402 + 50 * i, 100, 40, 40, tgp);
 			} else {
-				g.drawImage(TankGameImages.enemyTankImg[Stuff.NORTH],
+				g.drawImage(TankGameImages.enemyTankImg[Direction.NORTH],
 						602 + 50 * i, 20, 40, 40, tgp);
 			}
 		}
 		for (int j = 0; j < tgp.getControl().getMyTankNum(); j++) {
-			g.drawImage(TankGameImages.myTankImg[Stuff.NORTH], 602 + 50 * j,
+			g.drawImage(TankGameImages.myTankImg[Direction.NORTH], 602 + 50 * j,
 					400, 40, 40, tgp);
 		}
 		g.drawString("我的坦克子弹数目:" + tgp.getControl().getMyBulletNum(), 620, 500);

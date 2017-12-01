@@ -81,17 +81,17 @@ public class Tank extends Stuff{
 	public void shot(Tank tank) {
 		Bullet bullet = null;
 		switch (tank.getDirect()) { // 选择坦克的方向
-		case NORTH:
-			bullet = new Bullet(tank.getX(), tank.getY() - 20, NORTH);
+		case Direction.NORTH:
+			bullet = new Bullet(tank.getX(), tank.getY() - 20, Direction.NORTH);
 			break;
-		case SOUTH:
-			bullet = new Bullet(tank.getX(), tank.getY() + 20, SOUTH);
+		case Direction.SOUTH:
+			bullet = new Bullet(tank.getX(), tank.getY() + 20, Direction.SOUTH);
 			break;
-		case WEST:
-			bullet = new Bullet(tank.getX() - 20, tank.getY(), WEST);
+		case Direction.WEST:
+			bullet = new Bullet(tank.getX() - 20, tank.getY(), Direction.WEST);
 			break;
-		case EAST:
-			bullet = new Bullet(tank.getX() + 20, tank.getY(), EAST);
+		case Direction.EAST:
+			bullet = new Bullet(tank.getX() + 20, tank.getY(), Direction.EAST);
 			break;
 		}
 		tank.getBullets().add(bullet);
@@ -103,7 +103,7 @@ public class Tank extends Stuff{
 	 * 坦克往北走
 	 */
 	public void goNorth() {
-		this.setDirect(NORTH);
+		this.setDirect(Direction.NORTH);
 		if (this.getY() > 20) {
 			this.setY(this.getY() - this.speed);
 		} else {
@@ -115,7 +115,7 @@ public class Tank extends Stuff{
 	 * 坦克往南走
 	 */
 	public void goSouth() {
-		this.setDirect(SOUTH);
+		this.setDirect(Direction.SOUTH);
 		if (this.getY() < GamePanel.HEIGHT - 20) {
 			this.setY(this.getY() + this.speed);
 		} else {
@@ -127,7 +127,7 @@ public class Tank extends Stuff{
 	 * 坦克往西走
 	 */
 	public void goWest() {
-		this.setDirect(WEST);
+		this.setDirect(Direction.WEST);
 		if (this.getX() > 20 && this.getY() <= GamePanel.HEIGHT - 20) {
 			this.setX(this.getX() - this.speed);
 		} else {
@@ -139,7 +139,7 @@ public class Tank extends Stuff{
 	 * 坦克往东走
 	 */
 	public void goEast() {
-		this.setDirect(EAST);
+		this.setDirect(Direction.EAST);
 		if (this.getX() < GamePanel.WIDTH - 20
 				&& this.getY() <= GamePanel.HEIGHT - 20) {
 			this.setX(this.getX() + this.speed);
@@ -157,13 +157,13 @@ public class Tank extends Stuff{
 
 	public void go(int where) {
 		switch (where) {
-		case NORTH:
+		case Direction.NORTH:
 			this.goNorth();
-		case SOUTH:
+		case Direction.SOUTH:
 			this.goSouth();
-		case WEST:
+		case Direction.WEST:
 			this.goWest();
-		case EAST:
+		case Direction.EAST:
 			this.goEast();
 		}
 	}
@@ -181,7 +181,7 @@ public class Tank extends Stuff{
 		boolean b = false;
 		int x = stuff.getX();
 		int y = stuff.getY();
-		if (this.getDirect() == Tank.NORTH) {
+		if (this.getDirect() == Direction.NORTH) {
 			this.setY(this.getY() - this.getSpeed()); // 先假设该坦克往前移动一步
 			if (Math.abs(this.getY() - y) < length
 					&& Math.abs(this.getX() - x) < length) { // 如果在远离，此时他想逃出重叠，所以就设b为false，让它能够动
@@ -191,7 +191,7 @@ public class Tank extends Stuff{
 				this.setY(this.getY() + this.getSpeed());
 			}
 		}
-		if (this.getDirect() == Tank.SOUTH) {
+		if (this.getDirect() == Direction.SOUTH) {
 			this.setY(this.getY() + this.getSpeed()); // 先假设该坦克往前移动一步
 			if (Math.abs(this.getY() - y) < length
 					&& Math.abs(this.getX() - x) < length) {
@@ -199,7 +199,7 @@ public class Tank extends Stuff{
 			}
 			this.setY(this.getY() - this.getSpeed());
 		}
-		if (this.getDirect() == Tank.EAST) {
+		if (this.getDirect() == Direction.EAST) {
 			this.setX(this.getX() + this.getSpeed());
 			if (Math.abs(this.getY() - y) < length
 					&& Math.abs(this.getX() - x) < length) {
@@ -207,7 +207,7 @@ public class Tank extends Stuff{
 			}
 			this.setX(this.getX() - this.getSpeed());
 		}
-		if (this.getDirect() == Tank.WEST) {
+		if (this.getDirect() == Direction.WEST) {
 			this.setX(this.getX() - this.getSpeed());
 			if (Math.abs(this.getY() - y) < length
 					&& Math.abs(this.getX() - x) < length) {
