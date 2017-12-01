@@ -40,7 +40,8 @@ public class Draw {
 	public void drawStuff(Graphics g, Stuff stuff, JPanel panel) {
 		switch (stuff.getType()) {
 		case Stuff.TANK:
-			switch (stuff.getDirect()) { // 判断所朝的方向
+			// TODO refactor downcasting issue
+			switch (((Tank)stuff).getDirect()) { // 判断所朝的方向
 			case Stuff.NORTH:
 				this.drawNorth(g, stuff, panel);
 				break;

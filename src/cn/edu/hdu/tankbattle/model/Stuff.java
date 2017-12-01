@@ -76,10 +76,6 @@ public class Stuff {
 	 */
 	private boolean isLive = true;
 	/**
-	 * 方向
-	 */
-	private int direct;
-	/**
 	 * 颜色
 	 */
 	private Color color;
@@ -133,13 +129,6 @@ public class Stuff {
 		this.isLive = isLive;
 	}
 
-	public int getDirect() {
-		return direct;
-	}
-
-	public void setDirect(int direct) {
-		this.direct = direct;
-	}
 
 	public Color getColor() {
 		return color;

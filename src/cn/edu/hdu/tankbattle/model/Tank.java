@@ -1,6 +1,5 @@
 package cn.edu.hdu.tankbattle.model;
 
-import java.awt.Color;
 import java.util.Vector;
 
 import cn.edu.hdu.tankbattle.view.GamePanel;
@@ -12,7 +11,7 @@ import cn.edu.hdu.tankbattle.view.GamePanel;
  * @version 1.0
  * @since JavaSe-1.6
  */
-public class Tank extends Stuff {
+public class Tank extends Stuff{
 	/**
 	 * 我的坦克
 	 */
@@ -21,10 +20,7 @@ public class Tank extends Stuff {
 	 * 敌人坦克
 	 */
 	public static final int ENEMY = 1;
-	/**
-	 * 坦克的颜色
-	 */
-	private Color color = Color.green;
+
 	/**
 	 * 坦克的移动速度
 	 */
@@ -50,6 +46,7 @@ public class Tank extends Stuff {
 	 */
 	private int speedVector;
 
+	private int direct;
 	/**
 	 * 坦克的构造方法
 	 * 
@@ -67,6 +64,14 @@ public class Tank extends Stuff {
 		this.setType(Stuff.TANK);
 	}
 
+	public int getDirect() {
+		return direct;
+	}
+
+	public void setDirect(int direct) {
+		this.direct = direct;
+	}
+	
 	/**
 	 * 射击，发射一颗子弹
 	 * 
