@@ -19,7 +19,7 @@ public class Brick extends Stuff {
 	 */
 	public Brick(int x, int y) {
 		super(x, y);
-		this.setType(Stuff.BRICK);
+		this.setType(StuffType.BRICK);
 		this.setWidth(20);
 		this.setHeight(20);
 	}

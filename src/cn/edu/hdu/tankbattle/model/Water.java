@@ -16,10 +16,9 @@ public class Water extends Stuff {
 	 * @param y
 	 *            y坐标
 	 */
-
 	public Water(int x, int y) {
 		super(x, y);
-		this.setType(WATER);
+		this.setType(StuffType.WATER);
 		this.setWidth(20);
 		this.setHeight(20);
 	}

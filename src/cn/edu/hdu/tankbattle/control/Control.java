@@ -11,6 +11,7 @@ import cn.edu.hdu.tankbattle.model.GameResource;
 import cn.edu.hdu.tankbattle.model.Iron;
 import cn.edu.hdu.tankbattle.model.MyTank;
 import cn.edu.hdu.tankbattle.model.Stuff;
+import cn.edu.hdu.tankbattle.model.StuffType;
 import cn.edu.hdu.tankbattle.model.Tank;
 import cn.edu.hdu.tankbattle.model.Water;
 import cn.edu.hdu.tankbattle.model.map.Map;
@@ -273,7 +274,7 @@ public class Control {
 									- enemyTank.getY()) <= 10 && (enemyTank
 									.getDirect() == Direction.EAST || enemyTank
 									.getDirect() == Direction.WEST))) {
-						enemyTank.setFrontInfomation(Stuff.BRICK);
+						enemyTank.setFrontInfomation(StuffType.BRICK);
 						enemyTank.setOverlapYes(true);
 						enemyTank.setShot(true);
 					} else {
@@ -283,7 +284,7 @@ public class Control {
 			}
 			for (int j = 0; j < irons.size(); j++) {
 				if (enemyTank.Overlap(irons.get(j), 20 + 10) == true) {
-					enemyTank.setFrontInfomation(Stuff.IRON); // 挡住的东西是铁块
+					enemyTank.setFrontInfomation(StuffType.IRON); // 挡住的东西是铁块
 					enemyTank.setOverlapNo(true);
 					break;
 				}
@@ -291,7 +292,7 @@ public class Control {
 
 			for (int j = 0; j < waters.size(); j++) {
 				if (enemyTank.Overlap(waters.get(j), 20 + 10) == true) {
-					enemyTank.setFrontInfomation(Stuff.WATER);
+					enemyTank.setFrontInfomation(StuffType.WATER);
 					enemyTank.setOverlapNo(true);
 					break;
 				}
@@ -426,14 +427,14 @@ public class Control {
 			Tank tank) {
 		Bomb bomb;
 		switch (stuff.getType()) {
-		case Stuff.BRICK: // 砖块
+		case StuffType.BRICK: // 砖块
 			bullet.setLive(false);
 			stuff.setLive(false);
 			bomb = new Bomb(stuff.getX(), stuff.getY());
 			bomb.setL(40);
 			bombs.add(bomb);
 			break;
-		case Stuff.IRON: // 铁块
+		case StuffType.IRON: // 铁块
 			bomb = new Bomb(bullet.getX(), bullet.getY());
 			bullet.setLive(false);
 			bomb.setL(20);

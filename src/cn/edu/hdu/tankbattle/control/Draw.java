@@ -15,6 +15,7 @@ import cn.edu.hdu.tankbattle.model.EnemyTank;
 import cn.edu.hdu.tankbattle.model.Iron;
 import cn.edu.hdu.tankbattle.model.MyTank;
 import cn.edu.hdu.tankbattle.model.Stuff;
+import cn.edu.hdu.tankbattle.model.StuffType;
 import cn.edu.hdu.tankbattle.model.Tank;
 import cn.edu.hdu.tankbattle.model.TankGameImages;
 import cn.edu.hdu.tankbattle.model.Water;
@@ -40,7 +41,7 @@ public class Draw {
 	 */
 	public void drawStuff(Graphics g, Stuff stuff, JPanel panel) {
 		switch (stuff.getType()) {
-		case Stuff.TANK:
+		case StuffType.TANK:
 			// TODO refactor downcasting issue
 			
 			switch (((Tank)stuff).getDirect()) { // 判断所朝的方向
@@ -58,28 +59,28 @@ public class Draw {
 				break;
 			}
 			break;
-		case Stuff.BRICK:
+		case StuffType.BRICK:
 			/*
 			 * g.setColor(new Color(216,90,49)); g.fill3DRect(stuff.getX()-20,
 			 * stuff.getY()-20, 40, 40, false);
 			 */
-			g.drawImage(TankGameImages.stuffImg[Stuff.BRICK],
+			g.drawImage(TankGameImages.stuffImg[StuffType.BRICK],
 					stuff.getX() - 10, stuff.getY() - 10, 20, 20, panel);
 			break;
-		case Stuff.IRON:
+		case StuffType.IRON:
 			/*
 			 * g.setColor(new Color(225,225,225)); g.fill3DRect(stuff.getX()-20,
 			 * stuff.getY()-20, 40, 40, false);
 			 */
-			g.drawImage(TankGameImages.stuffImg[Stuff.IRON], stuff.getX() - 10,
+			g.drawImage(TankGameImages.stuffImg[StuffType.IRON], stuff.getX() - 10,
 					stuff.getY() - 10, 20, 20, panel);
 			break;
-		case Stuff.WATER:
+		case StuffType.WATER:
 			/*
 			 * g.setColor(new Color(65,64,253)); g.fillRect(stuff.getX()-20,
 			 * stuff.getY()-20, 40, 40);
 			 */
-			g.drawImage(TankGameImages.stuffImg[Stuff.WATER],
+			g.drawImage(TankGameImages.stuffImg[StuffType.WATER],
 					stuff.getX() - 10, stuff.getY() - 10, 20, 20, panel);
 			break;
 		}

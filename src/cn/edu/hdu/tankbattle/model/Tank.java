@@ -61,7 +61,7 @@ public class Tank extends Stuff{
 		super(x, y);
 		this.setDirect(direct);
 		this.bullets = new Vector<Bullet>();
-		this.setType(Stuff.TANK);
+		this.setType(StuffType.TANK);
 	}
 
 	public int getDirect() {
@@ -107,7 +107,7 @@ public class Tank extends Stuff{
 		if (this.getY() > 20) {
 			this.setY(this.getY() - this.speed);
 		} else {
-			this.setFrontInfomation(Stuff.IRON);
+			this.setFrontInfomation(StuffType.IRON);
 		}
 	}
 
@@ -119,7 +119,7 @@ public class Tank extends Stuff{
 		if (this.getY() < GamePanel.HEIGHT - 20) {
 			this.setY(this.getY() + this.speed);
 		} else {
-			this.setFrontInfomation(Stuff.IRON); // 碰到边界就相当于碰到铁块
+			this.setFrontInfomation(StuffType.IRON); // 碰到边界就相当于碰到铁块
 		}
 	}
 
@@ -131,7 +131,7 @@ public class Tank extends Stuff{
 		if (this.getX() > 20 && this.getY() <= GamePanel.HEIGHT - 20) {
 			this.setX(this.getX() - this.speed);
 		} else {
-			this.setFrontInfomation(Stuff.IRON);
+			this.setFrontInfomation(StuffType.IRON);
 		}
 	}
 
@@ -144,7 +144,7 @@ public class Tank extends Stuff{
 				&& this.getY() <= GamePanel.HEIGHT - 20) {
 			this.setX(this.getX() + this.speed);
 		} else {
-			this.setFrontInfomation(Stuff.IRON);
+			this.setFrontInfomation(StuffType.IRON);
 		}
 	}
 
