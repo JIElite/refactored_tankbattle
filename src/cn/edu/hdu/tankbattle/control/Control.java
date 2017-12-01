@@ -364,7 +364,7 @@ public class Control {
 					if (this.enemyTankNum >= 5) { // 如果还有敌人坦克，刚开始时面板上就创建了3个，所以大于等于3
 						EnemyTank enemyTank = new EnemyTank((r) * 140 + 20,
 								-20, Direction.SOUTH); // 创建一个敌人坦克对象
-						enemyTank.setLocation(r);
+						enemyTank.setX(r*140+20);
 						enemys.add(enemyTank); // 将该坦克加入敌人坦克容器中
 					}
 					break;
@@ -485,7 +485,7 @@ public class Control {
 
 		for (int i = 0; i < 5; i++) {
 			EnemyTank enemy = new EnemyTank((i) * 140 + 20, -20, Direction.SOUTH); // 创建一个敌人坦克对象
-			enemy.setLocation(i);
+			enemy.setY(i*140+20);
 			resource.getEnemys().add(enemy); // 将该坦克加入敌人坦克容器中 //将该子弹加入该坦克的子弹容器中
 		}
 		this.setEnemyTankNum(8);
@@ -515,7 +515,7 @@ public class Control {
 		}
 		for (int i = 0; i < 5; i++) {
 			EnemyTank enemy = new EnemyTank((i) * 140 + 20, -20, Direction.SOUTH); // 创建一个敌人坦克对象
-			enemy.setLocation(i);
+			enemy.setX(i*140+20);
 			resource.getEnemys().add(enemy); // 将该坦克加入敌人坦克容器中 //将该子弹加入该坦克的子弹容器中
 		}
 		for (int i = 0; i < 1; i++) {

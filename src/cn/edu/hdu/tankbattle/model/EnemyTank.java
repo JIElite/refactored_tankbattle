@@ -19,10 +19,6 @@ import cn.edu.hdu.tankbattle.view.GamePanel;
  */
 public class EnemyTank extends Tank implements Runnable {
 	/**
-	 * 敌人坦克刚出现时的位置，5个固定地方
-	 */
-	private int location;
-	/**
 	 * 我的坦克在敌人坦克的相对位置，正北方‘正南方’正西方‘正东方，-1为不知道
 	 */
 	private int myTankLocation = -1;
@@ -411,13 +407,19 @@ public class EnemyTank extends Tank implements Runnable {
 			this.setMyTankLocation(-1);
 		}
 	}
-
-	public int getLocation() {
-		return location;
-	}
-
-	public void setLocation(int location) {
-		this.location = location;
+	
+	/**
+	 * 线程睡眠指定时间
+	 * 
+	 * @param time
+	 *            睡眠时间，单位：毫秒
+	 */
+	public void sleep(long time) {
+		try {
+			Thread.sleep(time);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public Timer getTimer() {

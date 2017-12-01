@@ -148,8 +148,8 @@ public class Tank extends Stuff{
 	 *            方向
 	 */
 
-	public void go(int where) {
-		switch (where) {
+	public void go(int direction) {
+		switch (direction) {
 		case Direction.NORTH:
 			this.goNorth();
 		case Direction.SOUTH:
@@ -209,20 +209,6 @@ public class Tank extends Stuff{
 			this.setX(this.getX() + this.getSpeed());
 		}
 		return b;
-	}
-
-	/**
-	 * 线程睡眠指定时间
-	 * 
-	 * @param time
-	 *            睡眠时间，单位：毫秒
-	 */
-	public void sleep(long time) {
-		try {
-			Thread.sleep(time);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 	}
 
 	public int getSpeed() {
