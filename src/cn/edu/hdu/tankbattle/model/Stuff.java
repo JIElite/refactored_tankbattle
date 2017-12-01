@@ -27,10 +27,7 @@ public class Stuff {
 	 * 坦克
 	 */
 	public static final int TANK = 3;
-	/**
-	 * 地图
-	 */
-	public static final int MAP = 4;
+
 
 	/**
 	 * x坐标
