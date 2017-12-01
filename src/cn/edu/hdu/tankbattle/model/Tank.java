@@ -2,6 +2,8 @@ package cn.edu.hdu.tankbattle.model;
 
 import java.util.Vector;
 
+import cn.edu.hdu.tankbattle.bullet.Bullet;
+import cn.edu.hdu.tankbattle.bullet.BulletFactory;
 import cn.edu.hdu.tankbattle.constant.Direction;
 import cn.edu.hdu.tankbattle.constant.StuffType;
 import cn.edu.hdu.tankbattle.view.GamePanel;
@@ -49,6 +51,8 @@ public class Tank extends Stuff{
 	private int speedVector;
 
 	private int direct;
+	
+	private BulletFactory bulletfactory;
 	/**
 	 * 坦克的构造方法
 	 * 
@@ -64,6 +68,7 @@ public class Tank extends Stuff{
 		this.setDirect(direct);
 		this.bullets = new Vector<Bullet>();
 		this.setType(StuffType.TANK);
+		bulletfactory = new BulletFactory();
 	}
 
 	public int getDirect() {
@@ -81,22 +86,8 @@ public class Tank extends Stuff{
 	 *            坦克对象，注意，是自己，不是敌人，呵呵
 	 */
 	public void shot(Tank tank) {
-		Bullet bullet = null;
-		switch (tank.getDirect()) { // 选择坦克的方向
-		case Direction.NORTH:
-			bullet = new Bullet(tank.getX(), tank.getY() - 20, Direction.NORTH);
-			break;
-		case Direction.SOUTH:
-			bullet = new Bullet(tank.getX(), tank.getY() + 20, Direction.SOUTH);
-			break;
-		case Direction.WEST:
-			bullet = new Bullet(tank.getX() - 20, tank.getY(), Direction.WEST);
-			break;
-		case Direction.EAST:
-			bullet = new Bullet(tank.getX() + 20, tank.getY(), Direction.EAST);
-			break;
-		}
-		tank.getBullets().add(bullet);
+		Bullet bullet = bulletfactory.makeBullet(tank);
+		this.getBullets().add(bullet);
 		Thread t = new Thread(bullet);
 		t.start();
 	}
