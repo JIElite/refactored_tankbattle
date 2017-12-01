@@ -235,14 +235,6 @@ public class Tank extends Stuff {
 		this.speed = speed;
 	}
 
-	public Color getColor() {
-		return color;
-	}
-
-	public void setColor(Color color) {
-		this.color = color;
-	}
-
 	public Vector<Bullet> getBullets() {
 		return bullets;
 	}
