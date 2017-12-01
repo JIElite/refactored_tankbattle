@@ -1,5 +1,6 @@
 package cn.edu.hdu.tankbattle.model;
 
+import cn.edu.hdu.tankbattle.constant.Direction;
 import cn.edu.hdu.tankbattle.view.GamePanel;
 
 /**
@@ -11,42 +12,14 @@ import cn.edu.hdu.tankbattle.view.GamePanel;
  *
  */
 public class Bullet implements Runnable {
-	/**
-	 * 方向北
-	 */
-	public static final int NORTH = 0;
-	/**
-	 * 方向南
-	 */
-	public static final int SOUTH = 1;
-	/**
-	 * 方向西
-	 */
-	public static final int WEST = 2;
-	/**
-	 * 方向东
-	 */
-	public static final int EAST = 3;
-	/**
-	 * 子弹的速度
-	 */
-	private int speed = 4;
-	/**
-	 * 子弹的x坐标
-	 */
+	private int speed;
 	private int x;
-	/**
-	 * 子弹的y坐标
-	 */
 	private int y;
-	/**
-	 * 子弹的方向
-	 */
 	private int direct;
 	/**
 	 * 子弹是否存活
 	 */
-	private boolean isLive = true;
+	private boolean isFlying;
 	/**
 	 * 游戏暂停时存储子弹速度
 	 */
@@ -63,40 +36,42 @@ public class Bullet implements Runnable {
 	 *            子弹的方向
 	 */
 	public Bullet(int x, int y, int direct) {
-		this.x = x;
-		this.y = y;
-		this.direct = direct;
+		this.setX(x);
+		this.setY(y);
+		this.setDirect(direct);
+		this.setSpeed(4);
+		this.setFlying(true);
 		Thread threadBullet = new Thread(this); // 创建子弹线程
 		threadBullet.start();
 	}
 
 	@Override
 	public void run() {
-		this.bulletRun(); // 子弹开始移动
+		this.bulletFly(); // 子弹开始移动
 	}
 
 	/**
 	 * 子弹向前移动
 	 */
-	public void bulletRun() {
+	public void bulletFly() {
 		while (true) {
 			switch (direct) { // 选择子弹的方向
-			case NORTH:
+			case Direction.NORTH:
 				this.setY(this.getY() - this.getSpeed());
 				break;
-			case SOUTH:
+			case Direction.SOUTH:
 				this.setY(this.getY() + this.getSpeed());
 				break;
-			case WEST:
+			case Direction.WEST:
 				this.setX(this.getX() - this.getSpeed());
 				break;
-			case EAST:
+			case Direction.EAST:
 				this.setX(this.getX() + this.getSpeed());
 				break;
 			}
 			if (x < 5 || x > GamePanel.WIDTH - 5 || y < 5
 					|| y > GamePanel.HEIGHT - 5) { // 判断子弹是否碰到边界
-				this.isLive = false; // 子弹死亡
+				this.isFlying = false; // 子弹死亡
 				break;
 			}
 			try {
@@ -139,12 +114,12 @@ public class Bullet implements Runnable {
 		this.direct = direct;
 	}
 
-	public boolean isLive() {
-		return isLive;
+	public boolean isFlying() {
+		return this.isFlying;
 	}
 
-	public void setLive(boolean isLive) {
-		this.isLive = isLive;
+	public void setFlying(boolean isFlying) {
+		this.isFlying = isFlying;
 	}
 
 	public void setSpeedVector(int speedVector) {

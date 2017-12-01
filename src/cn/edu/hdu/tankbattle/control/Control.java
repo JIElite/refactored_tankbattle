@@ -170,8 +170,8 @@ public class Control {
 								&& Math.abs(mb.getY()
 										- enemyTank.getBullets().get(t).getY()) <= 6) {
 							// 子弹死亡、坦克也死亡
-							mb.setLive(false);
-							enemyTank.getBullets().get(t).setLive(false);
+							mb.setFlying(false);
+							enemyTank.getBullets().get(t).setFlying(false);
 							myTank.getBullets().remove(mb);
 							enemyTank.getBullets().remove(
 									enemyTank.getBullets().get(t));
@@ -320,7 +320,7 @@ public class Control {
 			// 清除我的坦克死亡的子弹
 			for (int j = 0; j < mb.size(); j++) {
 				Bullet b = mb.get(j);
-				if (b.isLive() == false) {
+				if (b.isFlying() == false) {
 					mb.remove(b);
 				}
 			}
@@ -343,7 +343,7 @@ public class Control {
 			// 清除敌人坦克的死亡的子弹
 			for (int j = 0; j < eb.size(); j++) {
 				Bullet b = eb.get(j);
-				if (b.isLive() == false) {
+				if (b.isFlying() == false) {
 					eb.remove(b);
 				}
 			}
@@ -397,7 +397,7 @@ public class Control {
 	 */
 	public void afterShotTank(Bullet bullet, Tank tank, Vector<Bomb> bombs) {
 		// 击中，子弹死亡 敌人坦克死亡 爆炸
-		bullet.setLive(false); // 击中坦克的子弹死亡
+		bullet.setFlying(false); // 击中坦克的子弹死亡
 		Bomb bomb; // 一颗炸弹
 		if (tank.getBlood() == 1) { // 只剩下最后一滴血
 			tank.setLive(false); // 坦克死亡
@@ -428,7 +428,7 @@ public class Control {
 		Bomb bomb;
 		switch (stuff.getType()) {
 		case StuffType.BRICK: // 砖块
-			bullet.setLive(false);
+			bullet.setFlying(false);
 			stuff.setLive(false);
 			bomb = new Bomb(stuff.getX(), stuff.getY());
 			bomb.setL(40);
@@ -436,7 +436,7 @@ public class Control {
 			break;
 		case StuffType.IRON: // 铁块
 			bomb = new Bomb(bullet.getX(), bullet.getY());
-			bullet.setLive(false);
+			bullet.setFlying(false);
 			bomb.setL(20);
 			bombs.add(bomb);
 		}
