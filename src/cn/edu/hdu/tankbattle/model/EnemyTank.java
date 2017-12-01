@@ -53,7 +53,6 @@ public class EnemyTank extends Tank implements Runnable {
 	public EnemyTank(int x, int y, int direct) {
 		super(x, y, direct);
 		this.setSpeed(4);
-		this.setType2(Tank.ENEMY);
 		this.setDirect(Direction.NORTH);
 		this.setColor(Color.red);
 		this.setBlood(10);

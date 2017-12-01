@@ -224,7 +224,7 @@ public class Draw {
 		 * 2, 11, false);
 		 */
 		Image image;
-		if (tank.getType2() == Tank.MY) {
+		if (tank instanceof MyTank) {
 			g.setColor(Color.green);
 			image = TankGameImages.myTankImg[Direction.NORTH];// 初始化图片
 		} else {
@@ -261,7 +261,7 @@ public class Draw {
 		 * false);
 		 */
 		Image image;
-		if (tank.getType2() == Tank.MY) {
+		if (tank instanceof MyTank) {
 			g.setColor(Color.green);
 			image = TankGameImages.myTankImg[Direction.SOUTH];// 初始化图片
 		} else {
@@ -298,7 +298,7 @@ public class Draw {
 		 * y-2, 2, 4, false);
 		 */
 		Image image;
-		if (tank.getType2() == Tank.MY) {
+		if (tank instanceof MyTank) {
 			image = TankGameImages.myTankImg[Direction.WEST];// 初始化图片
 			g.setColor(Color.green);
 		} else {
@@ -335,7 +335,7 @@ public class Draw {
 		 * 2, 4, false);
 		 */
 		Image image;
-		if (tank.getType2() == Tank.MY) {
+		if (tank instanceof MyTank) {
 			image = TankGameImages.myTankImg[Direction.EAST];// 初始化图片
 			g.setColor(Color.green);
 		} else {
