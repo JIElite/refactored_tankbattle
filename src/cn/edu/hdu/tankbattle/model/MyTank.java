@@ -1,6 +1,5 @@
 package cn.edu.hdu.tankbattle.model;
 
-import java.awt.Color;
 import java.util.Vector;
 
 /**
@@ -23,7 +22,6 @@ public class MyTank extends Tank {
 	 */
 	public MyTank(int x, int y, int direct) {
 		super(x, y, direct);
-		this.setColor(Color.yellow);
 		this.setHealthPoint(10);
 	}
 

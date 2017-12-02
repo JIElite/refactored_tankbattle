@@ -1,6 +1,5 @@
 package cn.edu.hdu.tankbattle.model;
 
-import java.awt.Color;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.Vector;
@@ -50,7 +49,6 @@ public class EnemyTank extends Tank implements Runnable {
 		super(x, y, direct);
 		this.setSpeed(4);
 		this.setDirect(Direction.NORTH);
-		this.setColor(Color.red);
 		this.setHealthPoint(10);
 		this.setSpeedVector(0); // 设为0表示没有保存坦克的速度，按下暂停时速度就不会是0
 		Thread threadTank = new Thread(this); // 创建敌人坦克线程

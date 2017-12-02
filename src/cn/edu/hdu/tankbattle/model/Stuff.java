@@ -1,6 +1,5 @@
 package cn.edu.hdu.tankbattle.model;
 
-import java.awt.Color;
 
 /**
  * 东西类，简单的一个对象
@@ -11,46 +10,13 @@ import java.awt.Color;
  * @since JavaSe-1.6
  */
 public class Stuff {
-	/**
-	 * x坐标
-	 */
 	private int x;
-	/**
-	 * y坐标
-	 */
 	private int y;
-	/**
-	 * 宽度
-	 */
 	private int width;
-	/**
-	 * 长度
-	 */
 	private int height;
-	/**
-	 * 东西第一个类型属性
-	 */
-	private int type;
-	/**
-	 * 东西第二个类型属性
-	 */
-//	private int type2;
-	/**
-	 * 是否活着
-	 */
+	private int type;	
 	private boolean isLive = true;
-	/**
-	 * 颜色
-	 */
-	private Color color;
-	/**
-	 * 东西类构造方法
-	 * 
-	 * @param x
-	 *            事物对象的x坐标
-	 * @param y
-	 *            事物对象的y坐标
-	 */
+
 	public Stuff(int x, int y) {
 		this.x = x;
 		this.y = y;
@@ -86,14 +52,6 @@ public class Stuff {
 
 	public void setLive(boolean isLive) {
 		this.isLive = isLive;
-	}
-
-	public Color getColor() {
-		return color;
-	}
-
-	public void setColor(Color color) {
-		this.color = color;
 	}
 
 	public int getWidth() {
