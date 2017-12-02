@@ -24,7 +24,7 @@ public class MyTank extends Tank {
 	public MyTank(int x, int y, int direct) {
 		super(x, y, direct);
 		this.setColor(Color.yellow);
-		this.setBlood(10);
+		this.setHealthPoint(10);
 	}
 
 	/**

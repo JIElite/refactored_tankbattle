@@ -41,6 +41,7 @@ public class Tank extends Stuff{
 	 */
 	private int speedVector;
 
+	private int HealthPoint;
 	
 	private int direct;
 	
@@ -71,12 +72,15 @@ public class Tank extends Stuff{
 		this.direct = direct;
 	}
 	
-	/**
-	 * 射击，发射一颗子弹
-	 * 
-	 * @param tank
-	 *            坦克对象，注意，是自己，不是敌人，呵呵
-	 */
+	public void setHealthPoint(int hp) {
+		this.HealthPoint = hp;
+	}
+	
+	public int getHealthPoint() {
+		return this.HealthPoint;
+	}
+	
+	
 	public void shot() {
 		Bullet bullet = bulletfactory.makeBullet(this);
 		this.getBullets().add(bullet);

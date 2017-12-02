@@ -399,15 +399,15 @@ public class Control {
 		// 击中，子弹死亡 敌人坦克死亡 爆炸
 		bullet.setFlying(false); // 击中坦克的子弹死亡
 		Bomb bomb; // 一颗炸弹
-		if (tank.getBlood() == 1) { // 只剩下最后一滴血
+		if (tank.getHealthPoint() == 1) { // 只剩下最后一滴血
 			tank.setLive(false); // 坦克死亡
 			bomb = new Bomb(tank.getX(), tank.getY()); // 创建炸弹，由坦克中心开始爆炸
-			tank.setBlood(tank.getBlood() - 1); // 坦克的血减1
+			tank.setHealthPoint(tank.getHealthPoint() - 1); // 坦克的血减1
 			bomb.setL(120); // 爆炸宽度120
 			bombs.add(bomb);
 		} else {
 			bomb = new Bomb(bullet.getX(), bullet.getY());// 创建炸弹，由子弹位置开始爆炸
-			tank.setBlood(tank.getBlood() - 1); // 坦克的血量减1
+			tank.setHealthPoint(tank.getHealthPoint() - 1); // 坦克的血量减1
 			bomb.setL(40); // 爆炸宽度40
 			bombs.add(bomb); // 将该炸弹加入炸弹容器中
 		}

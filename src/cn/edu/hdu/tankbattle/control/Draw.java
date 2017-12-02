@@ -232,7 +232,7 @@ public class Draw {
 			g.setColor(Color.gray);
 		}
 		g.drawImage(image, tank.getX() - 20, tank.getY() - 20, 40, 40, panel);
-		g.fillRect(tank.getX() - 20, tank.getY() - 30, tank.getBlood() * 4, 5);
+		g.fillRect(tank.getX() - 20, tank.getY() - 30, ((Tank)tank).getHealthPoint() * 4, 5);
 	}
 
 	/**
@@ -269,7 +269,7 @@ public class Draw {
 			g.setColor(Color.gray);
 		}
 		g.drawImage(image, tank.getX() - 20, tank.getY() - 20, 40, 40, panel);
-		g.fillRect(tank.getX() - 20, tank.getY() - 30, tank.getBlood() * 4, 5);
+		g.fillRect(tank.getX() - 20, tank.getY() - 30, ((Tank)tank).getHealthPoint() * 4, 5);
 	}
 
 	/**
@@ -306,7 +306,7 @@ public class Draw {
 			g.setColor(Color.gray);
 		}
 		g.drawImage(image, tank.getX() - 20, tank.getY() - 20, 40, 40, panel);
-		g.fillRect(tank.getX() - 20, tank.getY() - 30, tank.getBlood() * 4, 5);
+		g.fillRect(tank.getX() - 20, tank.getY() - 30, ((Tank)tank).getHealthPoint() * 4, 5);
 	}
 
 	/**
@@ -343,7 +343,7 @@ public class Draw {
 			g.setColor(Color.gray);
 		}
 		g.drawImage(image, tank.getX() - 20, tank.getY() - 20, 40, 40, panel);
-		g.fillRect(tank.getX() - 20, tank.getY() - 30, tank.getBlood() * 4, 5);
+		g.fillRect(tank.getX() - 20, tank.getY() - 30, ((Tank)tank).getHealthPoint() * 4, 5);
 	}
 
 	/**

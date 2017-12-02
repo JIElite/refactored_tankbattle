@@ -51,7 +51,7 @@ public class EnemyTank extends Tank implements Runnable {
 		this.setSpeed(4);
 		this.setDirect(Direction.NORTH);
 		this.setColor(Color.red);
-		this.setBlood(10);
+		this.setHealthPoint(10);
 		this.setSpeedVector(0); // 设为0表示没有保存坦克的速度，按下暂停时速度就不会是0
 		Thread threadTank = new Thread(this); // 创建敌人坦克线程
 		threadTank.start(); // 启动线程

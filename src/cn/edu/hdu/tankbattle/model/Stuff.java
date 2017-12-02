@@ -44,11 +44,6 @@ public class Stuff {
 	 */
 	private Color color;
 	/**
-	 * 血量
-	 */
-	private int blood;
-
-	/**
 	 * 东西类构造方法
 	 * 
 	 * @param x
@@ -99,14 +94,6 @@ public class Stuff {
 
 	public void setColor(Color color) {
 		this.color = color;
-	}
-
-	public void setBlood(int blood) {
-		this.blood = blood;
-	}
-
-	public int getBlood() {
-		return blood;
 	}
 
 	public int getWidth() {
