@@ -161,30 +161,16 @@ public class Draw {
 		Vector<Brick> bricks = map.getBricks();
 		Vector<Iron> irons = map.getIrons();
 		Vector<Water> waters = map.getWaters();
-		this.drawBricks(g, bricks, panel);
-		this.drawIrons(g, irons, panel);
-		this.drawWaters(g, waters, panel);
+		this.drawMapStuffs(g, panel, bricks, StuffType.BRICK);
+		this.drawMapStuffs(g, panel, irons, StuffType.IRON);
+		this.drawMapStuffs(g, panel, waters, StuffType.WATER);
 	}
 	
-	public void drawBricks(Graphics g, Vector<Brick> bricks, JPanel panel) {
-		for (int i = 0; i < bricks.size(); i++) {
-			Brick brick = bricks.get(i);
-			g.drawImage(TankGameImages.stuffImg[StuffType.BRICK],
-					brick.getX() - 10, brick.getY() - 10, 20, 20, panel);
-		}
-	}
-	public void drawIrons(Graphics g, Vector<Iron> irons, JPanel panel) {
-		for (int i = 0; i < irons.size(); i++) {
-			Iron iron = irons.get(i);
-			g.drawImage(TankGameImages.stuffImg[StuffType.IRON], iron.getX() - 10,
-					iron.getY() - 10, 20, 20, panel);
-		}
-	}
-	public void drawWaters(Graphics g, Vector<Water> waters, JPanel panel) {
-		for (int i = 0; i < waters.size(); i++) {
-			Water water = waters.get(i);
-			g.drawImage(TankGameImages.stuffImg[StuffType.WATER],
-					water.getX() - 10, water.getY() - 10, 20, 20, panel);
+	public void drawMapStuffs(Graphics g, JPanel panel, Vector<? extends Stuff> stuffs, int stuffType) {
+		for (int i = 0; i < stuffs.size(); i++) {
+			Stuff stuff = stuffs.get(i);
+			g.drawImage(TankGameImages.stuffImg[stuffType],
+					stuff.getX() - 10, stuff.getY() - 10, 20, 20, panel);
 		}
 	}
 
