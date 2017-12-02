@@ -26,32 +26,53 @@ import cn.edu.hdu.tankbattle.view.GamePanel;
  */
 public class Draw {
 	/**
-	 * 画出东西（包括坦克、障碍物。。）
+	 * 画出地图
 	 * 
 	 * @param g
 	 *            Graphics
-	 * @param stuff
-	 *            东西对象
+	 * @param map
+	 *            地图对象
 	 * @param panel
 	 *            被画的那个面板
 	 */
-	public void drawTank(Graphics g, Tank tank, JPanel panel) {
-		switch (tank.getDirect()) { // 判断所朝的方向
-		case Direction.NORTH:
-			this.drawNorth(g, tank, panel);
-			break;
-		case Direction.SOUTH:
-			this.drawSouth(g, tank, panel);
-			break;
-		case Direction.WEST:
-			this.drawWest(g, tank, panel);
-			break;
-		case Direction.EAST:
-			this.drawEast(g, tank, panel);
-			break;
+	public void drawMap(Graphics g, Map map, JPanel panel) {
+		Vector<Stuff> stuffs = map.getMapStuffs();
+		this.drawMapStuffs(g, stuffs, panel);
+	}
+	
+	public void drawMapStuffs(Graphics g, Vector<Stuff> stuffs, JPanel panel) {
+		for (int i = 0; i < stuffs.size(); i++) {
+			Stuff stuff = stuffs.get(i);
+			g.drawImage(TankGameImages.stuffImg[stuff.getType()],
+					stuff.getX() - 10, stuff.getY() - 10, 20, 20, panel);
 		}
 	}
-
+	
+	/**
+	 * 画出游戏右边的那个面板
+	 * 
+	 * @param g
+	 *            Graphics
+	 * @param tgp
+	 *            游戏主要面板对象
+	 */
+	public void drawInformationPanel(Graphics g, GamePanel tgp) {
+		for (int i = 0; i < tgp.getControl().getEnemyTankNum(); i++) {
+			if (i >= 4) {
+				g.drawImage(TankGameImages.enemyTankImg[Direction.NORTH],
+						402 + 50 * i, 100, 40, 40, tgp);
+			} else {
+				g.drawImage(TankGameImages.enemyTankImg[Direction.NORTH],
+						602 + 50 * i, 20, 40, 40, tgp);
+			}
+		}
+		for (int j = 0; j < tgp.getControl().getMyTankNum(); j++) {
+			g.drawImage(TankGameImages.myTankImg[Direction.NORTH], 602 + 50 * j,
+					400, 40, 40, tgp);
+		}
+		g.drawString("我的坦克子弹数目:" + tgp.getControl().getMyBulletNum(), 620, 500);
+	}
+	
 	/**
 	 * 画出爆炸
 	 * 
@@ -86,6 +107,33 @@ public class Draw {
 			if (b.getLifeTime() == 0) { // 该炸弹死亡
 				b.setLive(false);
 			}
+		}
+	}
+	
+	/**
+	 * 画出东西（包括坦克、障碍物。。）
+	 * 
+	 * @param g
+	 *            Graphics
+	 * @param stuff
+	 *            东西对象
+	 * @param panel
+	 *            被画的那个面板
+	 */
+	public void drawTank(Graphics g, Tank tank, JPanel panel) {
+		switch (tank.getDirect()) { // 判断所朝的方向
+		case Direction.NORTH:
+			this.drawNorth(g, tank, panel);
+			break;
+		case Direction.SOUTH:
+			this.drawSouth(g, tank, panel);
+			break;
+		case Direction.WEST:
+			this.drawWest(g, tank, panel);
+			break;
+		case Direction.EAST:
+			this.drawEast(g, tank, panel);
+			break;
 		}
 	}
 
@@ -133,29 +181,6 @@ public class Draw {
 							b.getY() - 2, 4, 4, panel);
 				}
 			}
-		}
-	}
-
-	/**
-	 * 画出地图
-	 * 
-	 * @param g
-	 *            Graphics
-	 * @param map
-	 *            地图对象
-	 * @param panel
-	 *            被画的那个面板
-	 */
-	public void drawMap(Graphics g, Map map, JPanel panel) {
-		Vector<Stuff> stuffs = map.getMapStuffs();
-		this.drawMapStuffs(g, stuffs, panel);
-	}
-	
-	public void drawMapStuffs(Graphics g, Vector<Stuff> stuffs, JPanel panel) {
-		for (int i = 0; i < stuffs.size(); i++) {
-			Stuff stuff = stuffs.get(i);
-			g.drawImage(TankGameImages.stuffImg[stuff.getType()],
-					stuff.getX() - 10, stuff.getY() - 10, 20, 20, panel);
 		}
 	}
 
@@ -308,30 +333,5 @@ public class Draw {
 		}
 		g.drawImage(image, tank.getX() - 20, tank.getY() - 20, 40, 40, panel);
 		g.fillRect(tank.getX() - 20, tank.getY() - 30, ((Tank)tank).getHealthPoint() * 4, 5);
-	}
-
-	/**
-	 * 画出游戏右边的那个面板
-	 * 
-	 * @param g
-	 *            Graphics
-	 * @param tgp
-	 *            游戏主要面板对象
-	 */
-	public void drawInformationPanel(Graphics g, GamePanel tgp) {
-		for (int i = 0; i < tgp.getControl().getEnemyTankNum(); i++) {
-			if (i >= 4) {
-				g.drawImage(TankGameImages.enemyTankImg[Direction.NORTH],
-						402 + 50 * i, 100, 40, 40, tgp);
-			} else {
-				g.drawImage(TankGameImages.enemyTankImg[Direction.NORTH],
-						602 + 50 * i, 20, 40, 40, tgp);
-			}
-		}
-		for (int j = 0; j < tgp.getControl().getMyTankNum(); j++) {
-			g.drawImage(TankGameImages.myTankImg[Direction.NORTH], 602 + 50 * j,
-					400, 40, 40, tgp);
-		}
-		g.drawString("我的坦克子弹数目:" + tgp.getControl().getMyBulletNum(), 620, 500);
 	}
 }
