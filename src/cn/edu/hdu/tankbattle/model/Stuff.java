@@ -93,7 +93,6 @@ public class Stuff {
 		this.isLive = isLive;
 	}
 
-
 	public Color getColor() {
 		return color;
 	}
@@ -101,14 +100,6 @@ public class Stuff {
 	public void setColor(Color color) {
 		this.color = color;
 	}
-
-//	public int getType2() {
-//		return type2;
-//	}
-//
-//	public void setType2(int type2) {
-//		this.type2 = type2;
-//	}
 
 	public void setBlood(int blood) {
 		this.blood = blood;
