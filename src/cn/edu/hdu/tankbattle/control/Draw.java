@@ -9,7 +9,6 @@ import javax.swing.JPanel;
 
 import cn.edu.hdu.tankbattle.bullet.Bullet;
 import cn.edu.hdu.tankbattle.constant.Direction;
-import cn.edu.hdu.tankbattle.constant.StuffType;
 import cn.edu.hdu.tankbattle.model.Bomb;
 import cn.edu.hdu.tankbattle.model.EnemyTank;
 import cn.edu.hdu.tankbattle.model.MyTank;
@@ -36,28 +35,21 @@ public class Draw {
 	 * @param panel
 	 *            被画的那个面板
 	 */
-	public void drawStuff(Graphics g, Stuff stuff, JPanel panel) {
-		switch (stuff.getType()) {
-		case StuffType.TANK:
-			// TODO refactor downcasting issue
-			
-			switch (((Tank)stuff).getDirect()) { // 判断所朝的方向
-			case Direction.NORTH:
-				this.drawNorth(g, stuff, panel);
-				break;
-			case Direction.SOUTH:
-				this.drawSouth(g, stuff, panel);
-				break;
-			case Direction.WEST:
-				this.drawWest(g, stuff, panel);
-				break;
-			case Direction.EAST:
-				this.drawEast(g, stuff, panel);
-				break;
-			}
+	public void drawTank(Graphics g, Tank tank, JPanel panel) {
+		switch (tank.getDirect()) { // 判断所朝的方向
+		case Direction.NORTH:
+			this.drawNorth(g, tank, panel);
+			break;
+		case Direction.SOUTH:
+			this.drawSouth(g, tank, panel);
+			break;
+		case Direction.WEST:
+			this.drawWest(g, tank, panel);
+			break;
+		case Direction.EAST:
+			this.drawEast(g, tank, panel);
 			break;
 		}
-
 	}
 
 	/**
@@ -109,7 +101,7 @@ public class Draw {
 	 */
 	public void drawEnemyTank(Graphics g, Vector<EnemyTank> enemys, JPanel panel) {
 		for (int i = 0; i < enemys.size(); i++) {
-			this.drawStuff(g, enemys.get(i), panel); // 画出敌人的坦克
+			this.drawTank(g, enemys.get(i), panel); // 画出敌人的坦克
 			for (int j = 0; j < enemys.get(i).getBullets().size(); j++) {
 				if (enemys.get(i).getBullets().get(j) != null) {
 					Bullet eb = enemys.get(i).getBullets().get(j);
@@ -133,7 +125,7 @@ public class Draw {
 	public void drawMyTank(Graphics g, Vector<MyTank> myTanks, JPanel panel) {
 		for (int m = 0; m < myTanks.size(); m++) {
 			MyTank myTank = myTanks.get(m); // 取出我的坦克
-			this.drawStuff(g, myTank, panel); // 画出我的坦克
+			this.drawTank(g, myTank, panel); // 画出我的坦克
 			for (int i = 0; i < myTank.getBullets().size(); i++) {
 				if (myTank.getBullets().get(i) != null) {
 					Bullet b = myTank.getBullets().get(i);
