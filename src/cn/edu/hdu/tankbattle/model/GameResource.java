@@ -13,17 +13,9 @@ import cn.edu.hdu.tankbattle.model.map.Map;
  * @date 2016年2月16日 下午3:33:40
  */
 public class GameResource {
-	/**
-	 * 我的坦克容量
-	 */
+	
 	private Vector<MyTank> myTanks = new Vector<MyTank>();
-	/**
-	 * 敌人坦克容量
-	 */
 	private Vector<EnemyTank> enemys = new Vector<EnemyTank>();; // 敌人坦克组
-	/**
-	 * 炸弹容量
-	 */
 	private Vector<Bomb> bombs = new Vector<Bomb>();; // 炸弹集合
 
 	/**
