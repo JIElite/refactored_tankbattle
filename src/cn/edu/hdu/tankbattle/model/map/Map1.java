@@ -14,7 +14,8 @@ import cn.edu.hdu.tankbattle.model.Water;
  * @since JavaSe-1.6
  */
 public class Map1 extends Map {
-			
+	
+	@Override 
 	public void initBricks() {
 		for (int i = 0; i < 30; i++) {
 			if (i % 2 == 0)
@@ -27,6 +28,7 @@ public class Map1 extends Map {
 		bricks.add(new Brick(220, 310));
 	}
 	
+	@Override
 	public void initWater() {
 		for (int i = 0; i < 25; i++) {
 			waters.add(new Water(20*i + 60, 130));
@@ -45,6 +47,7 @@ public class Map1 extends Map {
 		waters.add(new Water(400, 310));
 	}
 	
+	@Override
 	public void initIron() {
 		for (int i = 0; i < 29; i++) {
 			if (i % 2 == 0 || i % 3 == 0)

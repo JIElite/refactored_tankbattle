@@ -1,10 +1,11 @@
 package cn.edu.hdu.tankbattle.model.map;
 
-
 import cn.edu.hdu.tankbattle.model.Brick;
+
 
 public class Map3 extends Map {
 	
+	@Override
 	public void initBricks() {
 		for (int i = 0; i < 25; i++) {
 			bricks.add(new Brick(20 * i + 60, 60));
@@ -37,11 +38,4 @@ public class Map3 extends Map {
 		bricks.add(new Brick(310, 310));
 	}
 	
-	public void initIron() {
-		
-	}
-	
-	public void initWater() {
-
-	}
 }

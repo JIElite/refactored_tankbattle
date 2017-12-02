@@ -2,11 +2,10 @@ package cn.edu.hdu.tankbattle.model.map;
 
 import cn.edu.hdu.tankbattle.model.Iron;
 
+
 public class Map2 extends Map {
-	public void initBricks() {
-		
-	}
 	
+	@Override
 	public void initIron() {
 		for (int i = 0; i < 25; i++) {
 			if (i % 2 == 0)
@@ -40,7 +39,4 @@ public class Map2 extends Map {
 		irons.add(new Iron(310, 310));
 	}
 	
-	public void initWater() {
-		
-	}
 }

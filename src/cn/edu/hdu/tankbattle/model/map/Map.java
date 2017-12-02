@@ -12,7 +12,7 @@ import cn.edu.hdu.tankbattle.model.Water;
  * @author 1052067939
  *
  */
-public abstract class Map {
+public class Map {
 	protected Vector<Brick> bricks;
 	protected Vector<Iron> irons;
 	protected Vector<Water> waters;
@@ -24,9 +24,9 @@ public abstract class Map {
 		this.initMaps();
 	}
 	
-	public abstract void initBricks();
-	public abstract void initIron();
-	public abstract void initWater();
+	public void initBricks() {}
+	public void initIron() {}
+	public void initWater() {}
 	
 	public void initMaps() {
 		this.initBricks();
