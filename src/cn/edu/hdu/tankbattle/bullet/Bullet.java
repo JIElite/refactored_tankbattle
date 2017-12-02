@@ -10,7 +10,7 @@ import cn.edu.hdu.tankbattle.view.GamePanel;
  * @since JavaSe-1.6
  *
  */
-public abstract class Bullet implements Runnable {
+public class Bullet implements Runnable {
 	private int speed;
 	private int x;
 	private int y;
@@ -19,10 +19,13 @@ public abstract class Bullet implements Runnable {
 	private boolean isFlying;
 	// 游戏暂停时存储子弹速度
 	private int speedVector;
-
-	public Bullet(int x, int y) {
+	
+	private IBulletFly flyPolicy;
+	
+	public Bullet(int x, int y, IBulletFly flyPolicy) {
 		this.setX(x);
 		this.setY(y);
+		this.flyPolicy = flyPolicy;
 		this.setSpeed(4);
 		this.setFlying(true);
 		Thread threadBullet = new Thread(this); // 创建子弹线程
@@ -32,7 +35,7 @@ public abstract class Bullet implements Runnable {
 	@Override
 	public void run() {
 		while (true) {
-			this.bulletFly();
+			this.flyPolicy.bulletFly(this);
 			
 			// 子彈邊界檢測，看看是不是超出遊戲範圍，如果超出遊戲範圍便移除子彈。
 			if (x < 5 || x > GamePanel.WIDTH - 5 || y < 5
@@ -47,11 +50,6 @@ public abstract class Bullet implements Runnable {
 			}
 		}
 	}
-
-	/**
-	 * 子弹向前移动
-	 */
-	public abstract void bulletFly();
 	
 	public int getX() {
 		return x;

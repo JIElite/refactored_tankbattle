@@ -9,16 +9,16 @@ public class BulletFactory {
 		
 		switch(tank.getDirect()) {
 		case Direction.NORTH:
-			bullet = new NorthBullet(tank.getX(), tank.getY());
+			bullet = new Bullet(tank.getX(), tank.getY() - 20, new BulletFlyNorth());
 			break;
 		case Direction.SOUTH:
-			bullet = new SouthBullet(tank.getX(), tank.getY());
+			bullet = new Bullet(tank.getX(), tank.getY() + 20, new BulletFlySouth());
 			break;
 		case Direction.EAST:
-			bullet = new EastBullet(tank.getX(), tank.getY());
+			bullet = new Bullet(tank.getX() + 20, tank.getY(), new BulletFlyEast());
 			break;
 		case Direction.WEST:
-			bullet = new WestBullet(tank.getX(), tank.getY());
+			bullet = new Bullet(tank.getX() - 20, tank.getY(), new BulletFlyWest());
 			break;
 		default:
 			bullet = null;
