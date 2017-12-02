@@ -41,6 +41,7 @@ public class Tank extends Stuff{
 	 */
 	private int speedVector;
 
+	
 	private int direct;
 	
 	private BulletFactory bulletfactory;
@@ -76,8 +77,8 @@ public class Tank extends Stuff{
 	 * @param tank
 	 *            坦克对象，注意，是自己，不是敌人，呵呵
 	 */
-	public void shot(Tank tank) {
-		Bullet bullet = bulletfactory.makeBullet(tank);
+	public void shot() {
+		Bullet bullet = bulletfactory.makeBullet(this);
 		this.getBullets().add(bullet);
 		Thread t = new Thread(bullet);
 		t.start();

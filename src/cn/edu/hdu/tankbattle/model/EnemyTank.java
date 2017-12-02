@@ -479,7 +479,7 @@ class MyTimerTask extends TimerTask {
 	@Override
 	public void run() {
 		if (tank.getSpeedVector() == 0 && tank.isShot() == true)
-			tank.shot(tank);
+			tank.shot();
 	}
 
 }

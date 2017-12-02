@@ -15,7 +15,7 @@ import cn.edu.hdu.tankbattle.control.Control;
 import cn.edu.hdu.tankbattle.control.Draw;
 import cn.edu.hdu.tankbattle.control.UpdateThread;
 import cn.edu.hdu.tankbattle.model.GameResource;
-import cn.edu.hdu.tankbattle.model.MyTank;
+import cn.edu.hdu.tankbattle.model.MyTank;	
 import cn.edu.hdu.tankbattle.model.TankGameImages;
 
 /**
@@ -27,39 +27,24 @@ import cn.edu.hdu.tankbattle.model.TankGameImages;
  *
  */
 public class GamePanel extends JPanel implements KeyListener, ActionListener {
-
-	/**
-	 * @Fields serialVersionUID
+	/*
+	 * GamePanel 是
 	 */
+	
+	// serialVersionUID
 	private static final long serialVersionUID = 3979366008132703255L;
-	/**
-	 * 游戏面板的宽度
-	 */
 	public final static int WIDTH = 600;
-	/**
-	 * 游戏面板的高度
-	 */
 	public final static int HEIGHT = 600;
 
-	/**
-	 * 坦克游戏画笔对象
-	 */
+	// 坦克游戏画笔对象
 	private Draw pen = new Draw();;
-
-	/**
-	 * 面板上的资源，坦克...等
-	 */
+	// 面板上的资源，坦克...等
 	private GameResource resource = new GameResource();
-	/**
-	 * 游戏控制相关
-	 */
+	// 游戏控制相关
 	private Control control = new Control();
 
-	/**
-	 * 构造方法
-	 */
+	// 构造方法
 	public GamePanel() {
-
 		UpdateThread updateThread = new UpdateThread();
 		updateThread.setPannel(this);
 		new Thread(updateThread).start();
@@ -85,7 +70,6 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener {
 				g.drawImage(TankGameImages.gameOver, 250, control.getDy(), 100,
 						100, this);
 			}
-
 			if (this.control.getEnemyTankNum() == 0) { // 如果敌人坦克的数量为0
 				g.drawImage(TankGameImages.gameWin, 250, control.getDy(), 100,
 						100, this);
@@ -174,7 +158,7 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener {
 						&& this.control.getMyBulletNum() > 0) { // 最多颗子弹
 					this.control
 							.setMyBulletNum(this.control.getMyBulletNum() - 1);
-					myTank.shot(myTank); // 这时才会往容器中添加子弹对象
+					myTank.shot(); // 这时才会往容器中添加子弹对象
 				}
 			}
 			if (e.getKeyCode() == KeyEvent.VK_P) { // 暂停
