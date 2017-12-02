@@ -11,14 +11,11 @@ import cn.edu.hdu.tankbattle.bullet.Bullet;
 import cn.edu.hdu.tankbattle.constant.Direction;
 import cn.edu.hdu.tankbattle.constant.StuffType;
 import cn.edu.hdu.tankbattle.model.Bomb;
-import cn.edu.hdu.tankbattle.model.Brick;
 import cn.edu.hdu.tankbattle.model.EnemyTank;
-import cn.edu.hdu.tankbattle.model.Iron;
 import cn.edu.hdu.tankbattle.model.MyTank;
 import cn.edu.hdu.tankbattle.model.Stuff;
 import cn.edu.hdu.tankbattle.model.Tank;
 import cn.edu.hdu.tankbattle.model.TankGameImages;
-import cn.edu.hdu.tankbattle.model.Water;
 import cn.edu.hdu.tankbattle.model.map.Map;
 import cn.edu.hdu.tankbattle.view.GamePanel;
 
@@ -158,18 +155,14 @@ public class Draw {
 	 *            被画的那个面板
 	 */
 	public void drawMap(Graphics g, Map map, JPanel panel) {
-		Vector<Brick> bricks = map.getBricks();
-		Vector<Iron> irons = map.getIrons();
-		Vector<Water> waters = map.getWaters();
-		this.drawMapStuffs(g, panel, bricks, StuffType.BRICK);
-		this.drawMapStuffs(g, panel, irons, StuffType.IRON);
-		this.drawMapStuffs(g, panel, waters, StuffType.WATER);
+		Vector<Stuff> stuffs = map.getMapStuffs();
+		this.drawMapStuffs(g, stuffs, panel);
 	}
 	
-	public void drawMapStuffs(Graphics g, JPanel panel, Vector<? extends Stuff> stuffs, int stuffType) {
+	public void drawMapStuffs(Graphics g, Vector<Stuff> stuffs, JPanel panel) {
 		for (int i = 0; i < stuffs.size(); i++) {
 			Stuff stuff = stuffs.get(i);
-			g.drawImage(TankGameImages.stuffImg[stuffType],
+			g.drawImage(TankGameImages.stuffImg[stuff.getType()],
 					stuff.getX() - 10, stuff.getY() - 10, 20, 20, panel);
 		}
 	}

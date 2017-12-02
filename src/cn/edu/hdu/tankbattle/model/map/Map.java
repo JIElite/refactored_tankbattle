@@ -4,6 +4,7 @@ import java.util.Vector;
 
 import cn.edu.hdu.tankbattle.model.Brick;
 import cn.edu.hdu.tankbattle.model.Iron;
+import cn.edu.hdu.tankbattle.model.Stuff;
 import cn.edu.hdu.tankbattle.model.Water;
 
 /**
@@ -53,5 +54,21 @@ public class Map {
 	}
 	public void setWaters(Vector<Water> waters) {
 		this.waters = waters;
+	}
+	
+	public Vector<Stuff> getMapStuffs() {
+		Vector<Stuff> stuffs = new Vector<Stuff>();
+		
+		for (int i = 0; i < this.bricks.size(); i++) {
+			stuffs.add(this.bricks.get(i));
+		}
+		for (int j = 0; j < this.waters.size(); j++) {
+			stuffs.add(this.waters.get(j));
+		}
+		for (int k = 0; k < this.irons.size(); k++) {
+			stuffs.add(this.irons.get(k));
+		}
+		
+		return stuffs;
 	}
 }
