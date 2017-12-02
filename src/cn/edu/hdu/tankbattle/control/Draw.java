@@ -225,6 +225,7 @@ public class Draw {
 		 */
 		Image image;
 		if (tank instanceof MyTank) {
+			// HP color
 			g.setColor(Color.green);
 			image = TankGameImages.myTankImg[Direction.NORTH];// 初始化图片
 		} else {
@@ -354,7 +355,7 @@ public class Draw {
 	 * @param tgp
 	 *            游戏主要面板对象
 	 */
-	public void drawRight(Graphics g, GamePanel tgp) {
+	public void drawInformationPanel(Graphics g, GamePanel tgp) {
 		for (int i = 0; i < tgp.getControl().getEnemyTankNum(); i++) {
 			if (i >= 4) {
 				g.drawImage(TankGameImages.enemyTankImg[Direction.NORTH],

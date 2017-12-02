@@ -64,7 +64,7 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener {
 			pen.drawMyTank(g, resource.getMyTanks(), this); // 画出我的坦克（包括子弹）
 			pen.drawEnemyTank(g, resource.getEnemys(), this); // 画出敌人坦克（包括子弹）
 			pen.drawBomb(g, resource.getBombs(), this); // 画出爆炸
-			pen.drawRight(g, this);
+			pen.drawInformationPanel(g, this);
 
 			if (this.control.getMyTankNum() == 0) { // 如果我的坦克数量为0
 				g.drawImage(TankGameImages.gameOver, 250, control.getDy(), 100,
