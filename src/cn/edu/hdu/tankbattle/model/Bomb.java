@@ -23,7 +23,7 @@ public class Bomb {
 	/**
 	 * 炸弹的動畫持續時間
 	 */
-	private int lifeTime = 30;
+	private int lifeTime = 10;
 	/**
 	 * 炸弹是否活着
 	 */
