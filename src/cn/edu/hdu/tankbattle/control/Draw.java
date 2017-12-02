@@ -59,30 +59,6 @@ public class Draw {
 				break;
 			}
 			break;
-		case StuffType.BRICK:
-			/*
-			 * g.setColor(new Color(216,90,49)); g.fill3DRect(stuff.getX()-20,
-			 * stuff.getY()-20, 40, 40, false);
-			 */
-			g.drawImage(TankGameImages.stuffImg[StuffType.BRICK],
-					stuff.getX() - 10, stuff.getY() - 10, 20, 20, panel);
-			break;
-		case StuffType.IRON:
-			/*
-			 * g.setColor(new Color(225,225,225)); g.fill3DRect(stuff.getX()-20,
-			 * stuff.getY()-20, 40, 40, false);
-			 */
-			g.drawImage(TankGameImages.stuffImg[StuffType.IRON], stuff.getX() - 10,
-					stuff.getY() - 10, 20, 20, panel);
-			break;
-		case StuffType.WATER:
-			/*
-			 * g.setColor(new Color(65,64,253)); g.fillRect(stuff.getX()-20,
-			 * stuff.getY()-20, 40, 40);
-			 */
-			g.drawImage(TankGameImages.stuffImg[StuffType.WATER],
-					stuff.getX() - 10, stuff.getY() - 10, 20, 20, panel);
-			break;
 		}
 
 	}
@@ -185,14 +161,30 @@ public class Draw {
 		Vector<Brick> bricks = map.getBricks();
 		Vector<Iron> irons = map.getIrons();
 		Vector<Water> waters = map.getWaters();
+		this.drawBricks(g, bricks, panel);
+		this.drawIrons(g, irons, panel);
+		this.drawWaters(g, waters, panel);
+	}
+	
+	public void drawBricks(Graphics g, Vector<Brick> bricks, JPanel panel) {
 		for (int i = 0; i < bricks.size(); i++) {
-			this.drawStuff(g, bricks.get(i), panel);
+			Brick brick = bricks.get(i);
+			g.drawImage(TankGameImages.stuffImg[StuffType.BRICK],
+					brick.getX() - 10, brick.getY() - 10, 20, 20, panel);
 		}
+	}
+	public void drawIrons(Graphics g, Vector<Iron> irons, JPanel panel) {
 		for (int i = 0; i < irons.size(); i++) {
-			this.drawStuff(g, irons.get(i), panel);
+			Iron iron = irons.get(i);
+			g.drawImage(TankGameImages.stuffImg[StuffType.IRON], iron.getX() - 10,
+					iron.getY() - 10, 20, 20, panel);
 		}
+	}
+	public void drawWaters(Graphics g, Vector<Water> waters, JPanel panel) {
 		for (int i = 0; i < waters.size(); i++) {
-			this.drawStuff(g, waters.get(i), panel);
+			Water water = waters.get(i);
+			g.drawImage(TankGameImages.stuffImg[StuffType.WATER],
+					water.getX() - 10, water.getY() - 10, 20, 20, panel);
 		}
 	}
 
