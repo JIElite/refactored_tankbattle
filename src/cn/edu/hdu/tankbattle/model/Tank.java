@@ -45,7 +45,7 @@ public class Tank extends Stuff{
 	
 	private int direct;
 	
-	private BulletFactory bulletfactory;
+	private BulletFactory _bulletfactory;
 	/**
 	 * 坦克的构造方法
 	 * 
@@ -61,7 +61,7 @@ public class Tank extends Stuff{
 		this.setDirect(direct);
 		this.bullets = new Vector<Bullet>();
 		this.setType(StuffType.TANK);
-		bulletfactory = new BulletFactory();
+		this._bulletfactory = new BulletFactory();
 	}
 
 	public int getDirect() {
@@ -80,9 +80,38 @@ public class Tank extends Stuff{
 		return this.HealthPoint;
 	}
 	
+	public int getMuzzleX() {
+		int offset = 0;
+		switch(this.getDirect()) {
+			case Direction.EAST:
+				offset = 20;
+				break;
+			case Direction.WEST:
+				offset = -20;
+				break;
+			default:
+				break;
+		}
+		return this.getX() + offset;
+	}
+	
+	public int getMuzzleY() {
+		int offset = 0;
+		switch(this.getDirect()) {
+		case Direction.NORTH:
+			offset = -20;
+			break;
+		case Direction.SOUTH:
+			offset = 20;
+			break;
+		default:
+			break;
+		}
+		return this.getY() + offset;
+	}
 	
 	public void shot() {
-		Bullet bullet = bulletfactory.makeBullet(this);
+		Bullet bullet = this._bulletfactory.makeBullet(this);
 		this.getBullets().add(bullet);
 		Thread t = new Thread(bullet);
 		t.start();
