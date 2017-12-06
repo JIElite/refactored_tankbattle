@@ -13,11 +13,12 @@ public class Stuff {
 	private Position _position;
 	private int width;
 	private int height;
-	private int type;	
-	private boolean isLive = true;
+	private int type;
+	private boolean isLive;
 
 	public Stuff(Position p) {
 		this._position = p;
+		this.isLive = true;
 	}
 
 	public int getX() {
@@ -37,7 +38,7 @@ public class Stuff {
 	}
 
 	public int getType() {
-		return type;
+		return this.type;
 	}
 
 	public void setType(int type) {
