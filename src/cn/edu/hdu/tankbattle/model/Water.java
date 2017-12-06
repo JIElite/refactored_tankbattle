@@ -11,8 +11,8 @@ import cn.edu.hdu.tankbattle.constant.StuffType;
  */
 public class Water extends Stuff {
 	
-	public Water(int x, int y) {
-		super(x, y);
+	public Water(Position p) {
+		super(p);
 		this.setType(StuffType.WATER);
 		this.setWidth(20);
 		this.setHeight(20);

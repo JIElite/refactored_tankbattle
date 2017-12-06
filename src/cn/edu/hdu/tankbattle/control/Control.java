@@ -11,6 +11,7 @@ import cn.edu.hdu.tankbattle.model.EnemyTank;
 import cn.edu.hdu.tankbattle.model.GameResource;
 import cn.edu.hdu.tankbattle.model.Iron;
 import cn.edu.hdu.tankbattle.model.MyTank;
+import cn.edu.hdu.tankbattle.model.Position;
 import cn.edu.hdu.tankbattle.model.Stuff;
 import cn.edu.hdu.tankbattle.model.Tank;
 import cn.edu.hdu.tankbattle.model.Water;
@@ -331,7 +332,7 @@ public class Control {
 				this.beKilled++;
 				if (this.myTankNum >= 1) { // 如果还有我的坦克就创建一个，刚开始面板上就创建了一个我的坦克，所以大于等于
 											// 1
-					MyTank myTanktemp = new MyTank(300, 620, Direction.NORTH); // 创建一个我的坦克
+					MyTank myTanktemp = new MyTank(new Position(300, 620), Direction.NORTH); // 创建一个我的坦克
 					myTanks.add(myTanktemp);
 				}
 			}
@@ -362,8 +363,8 @@ public class Control {
 					r = (int) (Math.random() * 5); // 随机选择三个位置中的一个
 					enemys.remove(enemy); // 敌人坦克死亡后马上产生一个新的敌人坦克
 					if (this.enemyTankNum >= 5) { // 如果还有敌人坦克，刚开始时面板上就创建了3个，所以大于等于3
-						EnemyTank enemyTank = new EnemyTank((r) * 140 + 20,
-								-20, Direction.SOUTH); // 创建一个敌人坦克对象
+						EnemyTank enemyTank = new EnemyTank(new Position((r) * 140 + 20,
+								-20), Direction.SOUTH); // 创建一个敌人坦克对象
 						enemyTank.setX(r*140+20);
 						enemys.add(enemyTank); // 将该坦克加入敌人坦克容器中
 					}
@@ -484,7 +485,7 @@ public class Control {
 		}
 
 		for (int i = 0; i < 5; i++) {
-			EnemyTank enemy = new EnemyTank((i) * 140 + 20, -20, Direction.SOUTH); // 创建一个敌人坦克对象
+			EnemyTank enemy = new EnemyTank(new Position((i) * 140 + 20, -20), Direction.SOUTH); // 创建一个敌人坦克对象
 			enemy.setY(i*140+20);
 			resource.getEnemys().add(enemy); // 将该坦克加入敌人坦克容器中 //将该子弹加入该坦克的子弹容器中
 		}
@@ -514,12 +515,12 @@ public class Control {
 			resource.setMap(new Map5());
 		}
 		for (int i = 0; i < 5; i++) {
-			EnemyTank enemy = new EnemyTank((i) * 140 + 20, -20, Direction.SOUTH); // 创建一个敌人坦克对象
+			EnemyTank enemy = new EnemyTank(new Position((i) * 140 + 20, -20), Direction.SOUTH); // 创建一个敌人坦克对象
 			enemy.setX(i*140+20);
 			resource.getEnemys().add(enemy); // 将该坦克加入敌人坦克容器中 //将该子弹加入该坦克的子弹容器中
 		}
 		for (int i = 0; i < 1; i++) {
-			MyTank myTank = new MyTank(300, 620, Direction.NORTH); // 创建一个我的坦克
+			MyTank myTank = new MyTank(new Position(300, 620), Direction.NORTH); // 创建一个我的坦克
 			resource.getMyTanks().add(myTank); // 将我的坦克加入我的坦克容器中
 		}
 	}

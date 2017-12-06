@@ -20,8 +20,8 @@ public class MyTank extends Tank {
 	 * @param direct
 	 *            方向
 	 */
-	public MyTank(int x, int y, int direct) {
-		super(x, y, direct);
+	public MyTank(Position p, int direct) {
+		super(p, direct);
 		this.setHealthPoint(10);
 	}
 

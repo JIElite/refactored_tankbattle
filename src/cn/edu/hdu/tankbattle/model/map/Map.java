@@ -4,6 +4,7 @@ import java.util.Vector;
 
 import cn.edu.hdu.tankbattle.model.Brick;
 import cn.edu.hdu.tankbattle.model.Iron;
+import cn.edu.hdu.tankbattle.model.Position;
 import cn.edu.hdu.tankbattle.model.Stuff;
 import cn.edu.hdu.tankbattle.model.Water;
 
@@ -25,6 +26,19 @@ public class Map {
 		this.initMaps();
 	}
 	
+	public void initStuff(int stuffType, Vector<Position> positions) {
+		for(int i = 0; i < positions.size(); i++) {
+			
+			if (stuffType == 0) {
+				this.bricks.add(new Brick(positions.get(i)));
+			} else if (stuffType == 1) {
+				this.irons.add(new Iron(positions.get(i)));
+			} else if (stuffType ==  2) {
+				this.waters.add(new Water(positions.get(i)));
+			}
+			
+		}
+	}
 	public void initBricks() {}
 	public void initIron() {}
 	public void initWater() {}
@@ -34,6 +48,7 @@ public class Map {
 		this.initIron();
 		this.initWater();
 	}
+	
 	
 	public Vector<Brick> getBricks() {
 		return bricks;

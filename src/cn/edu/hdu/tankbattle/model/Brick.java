@@ -11,8 +11,8 @@ import cn.edu.hdu.tankbattle.constant.StuffType;
  *
  */
 public class Brick extends Stuff {
-	public Brick(int x, int y) {
-		super(x, y);
+	public Brick(Position p) {
+		super(p);
 		this.setType(StuffType.BRICK);
 		this.setWidth(20);
 		this.setHeight(20);

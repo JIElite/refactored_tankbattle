@@ -45,8 +45,8 @@ public class EnemyTank extends Tank implements Runnable {
 	 * @param y
 	 * @param direct
 	 */
-	public EnemyTank(int x, int y, int direct) {
-		super(x, y, direct);
+	public EnemyTank(Position p, int direct) {
+		super(p, direct);
 		this.setSpeed(4);
 		this.setDirect(Direction.NORTH);
 		this.setHealthPoint(10);

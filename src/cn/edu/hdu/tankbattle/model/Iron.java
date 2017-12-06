@@ -11,8 +11,8 @@ import cn.edu.hdu.tankbattle.constant.StuffType;
  */
 public class Iron extends Stuff {
 
-	public Iron(int x, int y) {
-		super(x, y);
+	public Iron(Position p) {
+		super(p);
 		this.setType(StuffType.IRON);
 		this.setWidth(20);
 		this.setHeight(20);

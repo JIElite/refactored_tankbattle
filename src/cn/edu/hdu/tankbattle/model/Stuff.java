@@ -10,32 +10,30 @@ package cn.edu.hdu.tankbattle.model;
  * @since JavaSe-1.6
  */
 public class Stuff {
-	private int x;
-	private int y;
+	private Position _position;
 	private int width;
 	private int height;
 	private int type;	
 	private boolean isLive = true;
 
-	public Stuff(int x, int y) {
-		this.x = x;
-		this.y = y;
+	public Stuff(Position p) {
+		this._position = p;
 	}
 
 	public int getX() {
-		return x;
+		return this._position.getX();
 	}
 
 	public void setX(int x) {
-		this.x = x;
+		this._position.setX(x);
 	}
 
 	public int getY() {
-		return y;
+		return this._position.getY();
 	}
 
 	public void setY(int y) {
-		this.y = y;
+		this._position.setY(y);
 	}
 
 	public int getType() {

@@ -19,31 +19,31 @@ public class Tank extends Stuff{
 	/**
 	 * 坦克的移动速度
 	 */
-	private int speed = 4; // 坦克移动速度
+	private int _speed = 4; // 坦克移动速度
 	/**
 	 * 挡住坦克前面的东西
 	 */
-	private int frontInfomation = -1;
+	private int _frontInfomation = -1;
 	/**
 	 * 坦克的子弹容量
 	 */
-	private Vector<Bullet> bullets;
+	private Vector<Bullet> _bullets;
 	/**
 	 * 坦克是否重叠属性,前面的障碍物不可过去
 	 */
-	private boolean isOverlapNo = false;
+	private boolean _isOverlapNo = false;
 	/**
 	 * 坦克是否重叠，前面的障碍物可以过去，用子弹可以打掉
 	 */
-	private boolean isOverlapYes = false;
+	private boolean _isOverlapYes = false;
 	/**
 	 * 游戏暂停时存储速度
 	 */
-	private int speedVector;
+	private int _speedVector;
 
-	private int HealthPoint;
+	private int _HealthPoint;
 	
-	private int direct;
+	private int _direct;
 	
 	private BulletFactory _bulletfactory;
 	/**
@@ -56,28 +56,28 @@ public class Tank extends Stuff{
 	 * @param direct
 	 *            坦克的方向
 	 */
-	public Tank(int x, int y, int direct) {
-		super(x, y);
+	public Tank(Position p, int direct) {
+		super(p);
 		this.setDirect(direct);
-		this.bullets = new Vector<Bullet>();
+		this._bullets = new Vector<Bullet>();
 		this.setType(StuffType.TANK);
 		this._bulletfactory = new BulletFactory();
 	}
 
 	public int getDirect() {
-		return direct;
+		return this._direct;
 	}
 
 	public void setDirect(int direct) {
-		this.direct = direct;
+		this._direct = direct;
 	}
 	
 	public void setHealthPoint(int hp) {
-		this.HealthPoint = hp;
+		this._HealthPoint = hp;
 	}
 	
 	public int getHealthPoint() {
-		return this.HealthPoint;
+		return this._HealthPoint;
 	}
 	
 	public int getMuzzleX() {
@@ -123,7 +123,7 @@ public class Tank extends Stuff{
 	public void goNorth() {
 		this.setDirect(Direction.NORTH);
 		if (this.getY() > 20) {
-			this.setY(this.getY() - this.speed);
+			this.setY(this.getY() - this._speed);
 		} else {
 			this.setFrontInfomation(StuffType.IRON);
 		}
@@ -135,7 +135,7 @@ public class Tank extends Stuff{
 	public void goSouth() {
 		this.setDirect(Direction.SOUTH);
 		if (this.getY() < GamePanel.HEIGHT - 20) {
-			this.setY(this.getY() + this.speed);
+			this.setY(this.getY() + this._speed);
 		} else {
 			this.setFrontInfomation(StuffType.IRON); // 碰到边界就相当于碰到铁块
 		}
@@ -147,7 +147,7 @@ public class Tank extends Stuff{
 	public void goWest() {
 		this.setDirect(Direction.WEST);
 		if (this.getX() > 20 && this.getY() <= GamePanel.HEIGHT - 20) {
-			this.setX(this.getX() - this.speed);
+			this.setX(this.getX() - this._speed);
 		} else {
 			this.setFrontInfomation(StuffType.IRON);
 		}
@@ -160,7 +160,7 @@ public class Tank extends Stuff{
 		this.setDirect(Direction.EAST);
 		if (this.getX() < GamePanel.WIDTH - 20
 				&& this.getY() <= GamePanel.HEIGHT - 20) {
-			this.setX(this.getX() + this.speed);
+			this.setX(this.getX() + this._speed);
 		} else {
 			this.setFrontInfomation(StuffType.IRON);
 		}
@@ -237,50 +237,50 @@ public class Tank extends Stuff{
 	}
 
 	public int getSpeed() {
-		return speed;
+		return this._speed;
 	}
 
 	public void setSpeed(int speed) {
-		this.speed = speed;
+		this._speed = speed;
 	}
 
 	public Vector<Bullet> getBullets() {
-		return bullets;
+		return this._bullets;
 	}
 
 	public void setBullets(Vector<Bullet> bullets) {
-		this.bullets = bullets;
+		this._bullets = bullets;
 	}
 
 	public void setSpeedVector(int speedVector) {
-		this.speedVector = speedVector;
+		this._speedVector = speedVector;
 	}
 
 	public int getSpeedVector() {
-		return speedVector;
+		return this._speedVector;
 	}
 
 	public boolean isOverlapNo() {
-		return isOverlapNo;
+		return this._isOverlapNo;
 	}
 
 	public void setOverlapNo(boolean isOverlapNo) {
-		this.isOverlapNo = isOverlapNo;
+		this._isOverlapNo = isOverlapNo;
 	}
 
 	public boolean isOverlapYes() {
-		return isOverlapYes;
+		return this._isOverlapYes;
 	}
 
 	public void setOverlapYes(boolean isOverlapYes) {
-		this.isOverlapYes = isOverlapYes;
+		this._isOverlapYes = isOverlapYes;
 	}
 
 	public int getFrontInfomation() {
-		return frontInfomation;
+		return this._frontInfomation;
 	}
 
 	public void setFrontInfomation(int frontInfomation) {
-		this.frontInfomation = frontInfomation;
+		this._frontInfomation = frontInfomation;
 	}
 }
