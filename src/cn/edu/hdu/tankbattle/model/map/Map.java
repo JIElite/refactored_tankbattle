@@ -26,6 +26,18 @@ public class Map {
 		this.initMaps();
 	}
 	
+	public void initMaps() {
+		this.initBricks();
+		this.initIron();
+		this.initWater();
+	}
+	
+	public void initBricks() {}
+	
+	public void initIron() {}
+	
+	public void initWater() {}
+	
 	public void initStuff(int stuffType, Vector<Position> positions) {
 		for(int i = 0; i < positions.size(); i++) {
 			
@@ -39,20 +51,10 @@ public class Map {
 			
 		}
 	}
-	public void initBricks() {}
-	public void initIron() {}
-	public void initWater() {}
-	
-	public void initMaps() {
-		this.initBricks();
-		this.initIron();
-		this.initWater();
-	}
-	
-	
 	public Vector<Brick> getBricks() {
 		return bricks;
 	}
+	
 	public void setBricks(Vector<Brick> bricks) {
 		this.bricks = bricks;
 	}
