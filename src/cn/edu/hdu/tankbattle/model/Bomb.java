@@ -1,5 +1,9 @@
 package cn.edu.hdu.tankbattle.model;
 
+import java.awt.Graphics;
+
+import javax.swing.JPanel;
+
 /**
  * 爆炸对象，是一个正方形
  * 
@@ -7,7 +11,7 @@ package cn.edu.hdu.tankbattle.model;
  * @version 1.0
  * @since JavaSe-1.6
  */
-public class Bomb {
+public class Bomb implements IDrawable {
 	/**
 	 * 炸弹的宽度
 	 */
@@ -84,5 +88,24 @@ public class Bomb {
 
 	public void setL(int l) {
 		this.l = l;
+	}
+	
+	public void draw(Graphics g, JPanel panel) {
+		if (getLifeTime() > 24) { // 生命值21-25
+			g.drawImage(TankGameImages.bomb[0], getX() - l / 2, getY()
+					- l / 2, l, l, panel);
+		} else if (getLifeTime() > 18) { // 生命值16-20
+			g.drawImage(TankGameImages.bomb[1], getX() - l / 2, getY()
+					- l / 2, l, l, panel);
+		} else if (getLifeTime() > 12) { // 生命值11-15
+			g.drawImage(TankGameImages.bomb[2], getX() - l / 2, getY()
+					- l / 2, l, l, panel);
+		} else if (getLifeTime() > 6) { // 生命值6-10
+			g.drawImage(TankGameImages.bomb[3], getX() - l / 2, getY()
+					- l / 2, l, l, panel);
+		} else { // 生命值低于6
+			g.drawImage(TankGameImages.bomb[4], getX() - l / 2, getY()
+					- l / 2, l, l, panel);
+		}
 	}
 }

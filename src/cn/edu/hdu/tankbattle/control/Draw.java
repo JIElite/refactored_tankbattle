@@ -57,6 +57,7 @@ public class Draw {
 	 *            游戏主要面板对象
 	 */
 	public void drawInformationPanel(Graphics g, GamePanel tgp) {
+		// TODO Enemy tanks 的數目在哪裡得知？可能要先了解 MVC 才能下去改
 		for (int i = 0; i < tgp.getControl().getEnemyTankNum(); i++) {
 			if (i >= 4) {
 				g.drawImage(TankGameImages.enemyTankImg[Direction.NORTH],
@@ -85,24 +86,8 @@ public class Draw {
 	 */
 	public void drawBomb(Graphics g, Vector<Bomb> bombs, JPanel panel) {
 		for (int i = 0; i < bombs.size(); i++) {
-			int l = bombs.get(i).getL();
 			Bomb b = bombs.get(i); // 从炸弹容器中取出一颗炸弹
-			if (b.getLifeTime() > 24) { // 生命值21-25
-				g.drawImage(TankGameImages.bomb[0], b.getX() - l / 2, b.getY()
-						- l / 2, l, l, panel);
-			} else if (b.getLifeTime() > 18) { // 生命值16-20
-				g.drawImage(TankGameImages.bomb[1], b.getX() - l / 2, b.getY()
-						- l / 2, l, l, panel);
-			} else if (b.getLifeTime() > 12) { // 生命值11-15
-				g.drawImage(TankGameImages.bomb[2], b.getX() - l / 2, b.getY()
-						- l / 2, l, l, panel);
-			} else if (b.getLifeTime() > 6) { // 生命值6-10
-				g.drawImage(TankGameImages.bomb[3], b.getX() - l / 2, b.getY()
-						- l / 2, l, l, panel);
-			} else { // 生命值低于6
-				g.drawImage(TankGameImages.bomb[4], b.getX() - l / 2, b.getY()
-						- l / 2, l, l, panel);
-			}
+			b.draw(g, panel);
 			b.lifeDown(); // 生命随时间衰减
 			if (b.getLifeTime() == 0) { // 该炸弹死亡
 				b.setLive(false);
