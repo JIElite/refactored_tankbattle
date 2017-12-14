@@ -1,6 +1,9 @@
 package cn.edu.hdu.tankbattle.model;
 
+import java.awt.Graphics;
 import java.util.Vector;
+
+import javax.swing.JPanel;
 
 import cn.edu.hdu.tankbattle.bullet.Bullet;
 import cn.edu.hdu.tankbattle.bullet.BulletFactory;
@@ -15,7 +18,7 @@ import cn.edu.hdu.tankbattle.view.GamePanel;
  * @version 1.0
  * @since JavaSe-1.6
  */
-public class Tank extends Stuff{
+public abstract class Tank extends Stuff implements IDrawable {
 	/**
 	 * 坦克的移动速度
 	 */
@@ -283,4 +286,6 @@ public class Tank extends Stuff{
 	public void setFrontInfomation(int frontInfomation) {
 		this._frontInfomation = frontInfomation;
 	}
+	
+	public abstract void draw(Graphics g, JPanel panel);
 }

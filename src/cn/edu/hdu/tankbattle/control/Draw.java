@@ -1,8 +1,6 @@
 package cn.edu.hdu.tankbattle.control;
 
-import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Image;
 import java.util.Vector;
 
 import javax.swing.JPanel;
@@ -106,20 +104,7 @@ public class Draw {
 	 *            被画的那个面板
 	 */
 	public void drawTank(Graphics g, Tank tank, JPanel panel) {
-		switch (tank.getDirect()) { // 判断所朝的方向
-		case Direction.NORTH:
-			this.drawNorth(g, tank, panel);
-			break;
-		case Direction.SOUTH:
-			this.drawSouth(g, tank, panel);
-			break;
-		case Direction.WEST:
-			this.drawWest(g, tank, panel);
-			break;
-		case Direction.EAST:
-			this.drawEast(g, tank, panel);
-			break;
-		}
+		tank.draw(g, panel);
 	}
 
 	/**
@@ -134,7 +119,7 @@ public class Draw {
 	 */
 	public void drawEnemyTank(Graphics g, Vector<EnemyTank> enemys, JPanel panel) {
 		for (int i = 0; i < enemys.size(); i++) {
-			this.drawTank(g, enemys.get(i), panel); // 画出敌人的坦克
+			enemys.get(i).draw(g, panel);
 			for (int j = 0; j < enemys.get(i).getBullets().size(); j++) {
 				if (enemys.get(i).getBullets().get(j) != null) {
 					Bullet eb = enemys.get(i).getBullets().get(j);
@@ -144,7 +129,7 @@ public class Draw {
 			}
 		}
 	}
-
+	
 	/**
 	 * 画出我的坦克和子弹
 	 * 
@@ -158,7 +143,7 @@ public class Draw {
 	public void drawMyTank(Graphics g, Vector<MyTank> myTanks, JPanel panel) {
 		for (int m = 0; m < myTanks.size(); m++) {
 			MyTank myTank = myTanks.get(m); // 取出我的坦克
-			this.drawTank(g, myTank, panel); // 画出我的坦克
+			myTank.draw(g, panel);
 			for (int i = 0; i < myTank.getBullets().size(); i++) {
 				if (myTank.getBullets().get(i) != null) {
 					Bullet b = myTank.getBullets().get(i);
@@ -167,156 +152,5 @@ public class Draw {
 				}
 			}
 		}
-	}
-
-	/**
-	 * 画出一个面朝北的坦克
-	 * 
-	 * @param g
-	 *            Graphics
-	 * @param tank
-	 *            东西对象
-	 * @param panel
-	 *            被画的那个面板
-	 */
-	public void drawNorth(Graphics g, Stuff tank, JPanel panel) {
-		/*
-		 * int x=tank.getX(); int y=tank.getY(); //0.设置画笔颜色
-		 * g.setColor(Color.white); //1.画出左边的矩形 g.fill3DRect(x-20, y-20, 10,
-		 * 40,false); //2.画出右边矩形 g.fill3DRect(x+10, y-20, 10, 40,false);
-		 * //3.更换画笔颜色 g.setColor(tank.getColor()); //4.画出轮子条纹 for(int
-		 * i=0;i<20-1;i++){ g.drawLine(x-20, y-20+(i+1)*2, x-10-1,y-20+(i+1)*2);
-		 * g.drawLine(x+10, y-20+(i+1)*2, x+20-1,y-20+(i+1)*2); } //5.画出中间1矩形
-		 * g.fill3DRect(x-15, y-14, 30, 28,false); //6.更换画笔颜色
-		 * g.setColor(Color.white); //7.画出中间2矩形 g.draw3DRect(x-10, y-9, 20,
-		 * 18,false); //8.画出中间3矩形 g.draw3DRect(x-3, y-5, 6, 10,false); //9.画直线
-		 * g.drawLine(x-15, y-14, x-10, y-9); g.drawLine(x+15, y-14, x+10, y-9);
-		 * g.drawLine(x-15, y+14, x-10, y+9); g.drawLine(x+15, y+14, x+10, y+9);
-		 * g.setColor(tank.getColor()); //10.画矩形 g.fill3DRect(x-3, y-12, 6, 3,
-		 * false); g.fill3DRect(x-2, y-20, 4, 2, false); g.fill3DRect(x-1, y-20,
-		 * 2, 11, false);
-		 */
-		Image image;
-		if (tank instanceof MyTank) {
-			// HP color
-			g.setColor(Color.green);
-			image = TankGameImages.myTankImg[Direction.NORTH];// 初始化图片
-		} else {
-			image = TankGameImages.enemyTankImg[Direction.NORTH];
-			g.setColor(Color.gray);
-		}
-		g.drawImage(image, tank.getX() - 20, tank.getY() - 20, 40, 40, panel);
-		g.fillRect(tank.getX() - 20, tank.getY() - 30, ((Tank)tank).getHealthPoint() * 4, 5);
-	}
-
-	/**
-	 * 画出一个方向朝南的坦克
-	 * 
-	 * @param g
-	 *            Graphics
-	 * @param tank
-	 *            东西对象
-	 * @param panel
-	 *            被画的那个面板
-	 */
-	public void drawSouth(Graphics g, Stuff tank, JPanel panel) {
-		/*
-		 * int x=tank.getX(); int y=tank.getY(); g.setColor(Color.white);
-		 * g.fill3DRect(x-20, y-20, 10, 40,false); g.fill3DRect(x+10, y-20, 10,
-		 * 40,false); g.setColor(tank.getColor()); for(int i=0;i<20-1;i++){
-		 * g.drawLine(x-20, y-20+(i+1)*2, x-10-1,y-20+(i+1)*2); g.drawLine(x+10,
-		 * y-20+(i+1)*2, x+20-1,y-20+(i+1)*2); } g.fill3DRect(x-15, y-14, 30,
-		 * 28,false); g.setColor(Color.white); g.draw3DRect(x-10, y-9, 20,
-		 * 18,false); g.draw3DRect(x-3, y-5, 6, 10,false); g.drawLine(x-15,
-		 * y-14, x-10, y-9); g.drawLine(x+15, y-14, x+10, y-9); g.drawLine(x-15,
-		 * y+14, x-10, y+9); g.drawLine(x+15, y+14, x+10, y+9);
-		 * g.setColor(tank.getColor()); g.fill3DRect(x-3, y+9, 6, 3, false);
-		 * g.fill3DRect(x-1, y+9, 2, 11, false); g.fill3DRect(x-2, y+18, 4, 2,
-		 * false);
-		 */
-		Image image;
-		if (tank instanceof MyTank) {
-			g.setColor(Color.green);
-			image = TankGameImages.myTankImg[Direction.SOUTH];// 初始化图片
-		} else {
-			image = TankGameImages.enemyTankImg[Direction.SOUTH];
-			g.setColor(Color.gray);
-		}
-		g.drawImage(image, tank.getX() - 20, tank.getY() - 20, 40, 40, panel);
-		g.fillRect(tank.getX() - 20, tank.getY() - 30, ((Tank)tank).getHealthPoint() * 4, 5);
-	}
-
-	/**
-	 * 画出一个方向朝西的坦克
-	 * 
-	 * @param g
-	 *            Graphics
-	 * @param tank
-	 *            东西对象
-	 * @param panel
-	 *            被画的那个面板
-	 */
-	public void drawWest(Graphics g, Stuff tank, JPanel panel) {
-		/*
-		 * int x=tank.getX(); int y=tank.getY(); g.setColor(Color.white);
-		 * g.fill3DRect(x-20, y-20, 40, 10,false); g.fill3DRect(x-20, y+10, 40,
-		 * 10,false); g.setColor(tank.getColor()); for(int i=0;i<20-1;i++){
-		 * g.drawLine(x-20+(i+1)*2, y-20, x-20+(i+1)*2,y-10-1);
-		 * g.drawLine(x-20+(i+1)*2, y-20+30, x-20+(i+1)*2,y-10-1+30); }
-		 * g.fill3DRect(x-14, y-15, 28, 30,false); g.setColor(Color.white);
-		 * g.draw3DRect(x-9, y-10, 18, 20,false); g.draw3DRect(x-5, y-3, 10,
-		 * 6,false); g.drawLine(x-15, y-14, x-10, y-9); g.drawLine(x+15, y-14,
-		 * x+10, y-9); g.drawLine(x-15, y+14, x-10, y+9); g.drawLine(x+15, y+14,
-		 * x+10, y+9); g.setColor(tank.getColor()); g.fill3DRect(x-12, y-3, 3,
-		 * 6, false); g.fill3DRect(x-20, y-1, 11, 2, false); g.fill3DRect(x-20,
-		 * y-2, 2, 4, false);
-		 */
-		Image image;
-		if (tank instanceof MyTank) {
-			image = TankGameImages.myTankImg[Direction.WEST];// 初始化图片
-			g.setColor(Color.green);
-		} else {
-			image = TankGameImages.enemyTankImg[Direction.WEST];
-			g.setColor(Color.gray);
-		}
-		g.drawImage(image, tank.getX() - 20, tank.getY() - 20, 40, 40, panel);
-		g.fillRect(tank.getX() - 20, tank.getY() - 30, ((Tank)tank).getHealthPoint() * 4, 5);
-	}
-
-	/**
-	 * 画出一个方向朝东的坦克
-	 * 
-	 * @param g
-	 *            Graphics
-	 * @param tank
-	 *            东西对象
-	 * @param panel
-	 *            被画的那个面板
-	 */
-	public void drawEast(Graphics g, Stuff tank, JPanel panel) {
-		/*
-		 * int x=tank.getX(); int y=tank.getY(); g.setColor(Color.white);
-		 * g.fill3DRect(x-20, y-20, 40, 10,false); g.fill3DRect(x-20, y+10, 40,
-		 * 10,false); g.setColor(tank.getColor()); for(int i=0;i<20-1;i++){
-		 * g.drawLine(x-20+(i+1)*2, y-20, x-20+(i+1)*2,y-10-1);
-		 * g.drawLine(x-20+(i+1)*2, y-20+30, x-20+(i+1)*2,y-10-1+30); }
-		 * g.fill3DRect(x-14, y-15, 28, 30,false); g.setColor(Color.white);
-		 * g.draw3DRect(x-9, y-10, 18, 20,false); g.draw3DRect(x-5, y-3, 10,
-		 * 6,false); g.drawLine(x-15, y-14, x-10, y-9); g.drawLine(x+15, y-14,
-		 * x+10, y-9); g.drawLine(x-15, y+14, x-10, y+9); g.drawLine(x+15, y+14,
-		 * x+10, y+9); g.setColor(tank.getColor()); g.fill3DRect(x+9, y-3, 3, 6,
-		 * false); g.fill3DRect(x+9, y-1, 11, 2, false); g.fill3DRect(x+18, y-2,
-		 * 2, 4, false);
-		 */
-		Image image;
-		if (tank instanceof MyTank) {
-			image = TankGameImages.myTankImg[Direction.EAST];// 初始化图片
-			g.setColor(Color.green);
-		} else {
-			image = TankGameImages.enemyTankImg[Direction.EAST];
-			g.setColor(Color.gray);
-		}
-		g.drawImage(image, tank.getX() - 20, tank.getY() - 20, 40, 40, panel);
-		g.fillRect(tank.getX() - 20, tank.getY() - 30, ((Tank)tank).getHealthPoint() * 4, 5);
 	}
 }

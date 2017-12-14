@@ -1,6 +1,12 @@
 package cn.edu.hdu.tankbattle.model;
 
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.util.Vector;
+
+import javax.swing.JPanel;
+
 
 /**
  * 我的坦克类，继承自坦克类
@@ -9,7 +15,7 @@ import java.util.Vector;
  * @version 1.0
  * @since JavaSe-1.6
  */
-public class MyTank extends Tank {
+public class MyTank extends Tank  {
 	/**
 	 * 构造方法
 	 * 
@@ -38,5 +44,14 @@ public class MyTank extends Tank {
 				return true; // 则返回真
 		}
 		return false; // 不重叠返回假
+	}
+	
+	public void draw(Graphics g, JPanel panel) {
+		Image image;
+		// HP color
+		g.setColor(Color.green);
+		image = TankGameImages.myTankImg[getDirect()];// 初始化图片
+		g.drawImage(image, getX() - 20, getY() - 20, 40, 40, panel);
+		g.fillRect(getX() - 20, getY() - 30, getHealthPoint() * 4, 5);
 	}
 }
