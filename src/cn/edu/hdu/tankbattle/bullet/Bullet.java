@@ -1,5 +1,11 @@
 package cn.edu.hdu.tankbattle.bullet;
 
+import java.awt.Graphics;
+
+import javax.swing.JPanel;
+
+import cn.edu.hdu.tankbattle.model.IDrawable;
+import cn.edu.hdu.tankbattle.model.TankGameImages;
 import cn.edu.hdu.tankbattle.view.GamePanel;
 
 /**
@@ -10,7 +16,7 @@ import cn.edu.hdu.tankbattle.view.GamePanel;
  * @since JavaSe-1.6
  *
  */
-public class Bullet implements Runnable {
+public class Bullet implements Runnable, IDrawable {
 	private int speed;
 	private int x;
 	private int y;
@@ -89,5 +95,9 @@ public class Bullet implements Runnable {
 
 	public int getSpeedVector() {
 		return speedVector;
+	}
+	
+	public void draw(Graphics g, JPanel panel) {
+		g.drawImage(TankGameImages.bullet, getX() - 2, getY() - 2, 4, 4, panel);
 	}
 }
