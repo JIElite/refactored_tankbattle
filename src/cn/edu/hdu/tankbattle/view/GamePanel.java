@@ -61,8 +61,8 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener {
 			g.fillRect(0, 0, WIDTH, HEIGHT);
 			g.fillRect(280, 600, 40, 40);
 			pen.drawMap(g, resource.getMap(), this);
-			pen.drawMyTank(g, resource.getMyTanks(), this); // 画出我的坦克（包括子弹）
-			pen.drawEnemyTank(g, resource.getEnemys(), this); // 画出敌人坦克（包括子弹）
+			pen.drawTanks(g, resource.getMyTanks(), this); // 画出我的坦克（包括子弹）
+			pen.drawTanks(g, resource.getEnemys(), this); // 画出敌人坦克（包括子弹）
 			pen.drawBomb(g, resource.getBombs(), this); // 画出爆炸
 			pen.drawInformationPanel(g, this);
 
