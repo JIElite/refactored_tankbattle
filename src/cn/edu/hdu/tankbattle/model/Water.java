@@ -13,9 +13,9 @@ public class Water extends Stuff {
 	
 	public Water(Position p) {
 		super(p);
-		this.setType(StuffType.WATER);
-		this.setWidth(20);
-		this.setHeight(20);
+		setType(StuffType.WATER);
+		setWidth(20);
+		setHeight(20);
 	}
 
 }

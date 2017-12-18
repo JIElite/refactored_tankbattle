@@ -13,9 +13,9 @@ public class Iron extends Stuff {
 
 	public Iron(Position p) {
 		super(p);
-		this.setType(StuffType.IRON);
-		this.setWidth(20);
-		this.setHeight(20);
+		setType(StuffType.IRON);
+		setWidth(20);
+		setHeight(20);
 	}
 
 }

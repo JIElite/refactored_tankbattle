@@ -29,11 +29,11 @@ public class Bullet implements Runnable, IDrawable {
 	private IBulletFly flyPolicy;
 	
 	public Bullet(int x, int y, IBulletFly flyPolicy) {
-		this.setX(x);
-		this.setY(y);
+		setX(x);
+		setY(y);
 		this.flyPolicy = flyPolicy;
-		this.setSpeed(4);
-		this.setFlying(true);
+		setSpeed(4);
+		setFlying(true);
 		Thread threadBullet = new Thread(this); // 创建子弹线程
 		threadBullet.start();
 	}
@@ -41,12 +41,12 @@ public class Bullet implements Runnable, IDrawable {
 	@Override
 	public void run() {
 		while (true) {
-			this.flyPolicy.bulletFly(this);
+			flyPolicy.bulletFly(this);
 			
 			// 子彈邊界檢測，看看是不是超出遊戲範圍，如果超出遊戲範圍便移除子彈。
 			if (x < 5 || x > GamePanel.WIDTH - 5 || y < 5
 					|| y > GamePanel.HEIGHT - 5) {
-				this.isFlying = false;
+				isFlying = false;
 				break;
 			}
 			try {
@@ -82,7 +82,7 @@ public class Bullet implements Runnable, IDrawable {
 	}
 
 	public boolean isFlying() {
-		return this.isFlying;
+		return isFlying;
 	}
 
 	public void setFlying(boolean isFlying) {

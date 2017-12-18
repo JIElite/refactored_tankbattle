@@ -28,7 +28,7 @@ public class MyTank extends Tank  {
 	 */
 	public MyTank(Position p, int direct) {
 		super(p, direct);
-		this.setHealthPoint(10);
+		setHealthPoint(10);
 	}
 
 	/**
@@ -40,7 +40,7 @@ public class MyTank extends Tank  {
 	 */
 	public boolean isOverlap_(Vector<EnemyTank> enemys) {
 		for (int i = 0; i < enemys.size(); i++) { // 依次取出每个敌人坦克
-			if (this.Overlap(enemys.get(i), 40) == true)// 如果这两辆坦克重叠
+			if (Overlap(enemys.get(i), 40) == true)// 如果这两辆坦克重叠
 				return true; // 则返回真
 		}
 		return false; // 不重叠返回假

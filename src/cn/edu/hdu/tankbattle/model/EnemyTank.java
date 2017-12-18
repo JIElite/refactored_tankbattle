@@ -52,10 +52,10 @@ public class EnemyTank extends Tank implements Runnable {
 	 */
 	public EnemyTank(Position p, int direct) {
 		super(p, direct);
-		this.setSpeed(4);
-		this.setDirect(Direction.NORTH);
-		this.setHealthPoint(10);
-		this.setSpeedVector(0); // 设为0表示没有保存坦克的速度，按下暂停时速度就不会是0
+		setSpeed(4);
+		setDirect(Direction.NORTH);
+		setHealthPoint(10);
+		setSpeedVector(0); // 设为0表示没有保存坦克的速度，按下暂停时速度就不会是0
 		Thread threadTank = new Thread(this); // 创建敌人坦克线程
 		threadTank.start(); // 启动线程
 		// 定时器 每隔0.5秒打一发子弹
@@ -74,7 +74,7 @@ public class EnemyTank extends Tank implements Runnable {
 		
 	@Override
 	public void run() {
-		this.enemyTankRun();
+		enemyTankRun();
 	}
 	
 	/**
@@ -82,137 +82,137 @@ public class EnemyTank extends Tank implements Runnable {
 	 */
 	public void enemyTankRun() {
 		while (true) {
-			switch (this.getDirect()) { // 选择坦克方向
+			switch (getDirect()) { // 选择坦克方向
 			case Direction.NORTH:
 				for (;;) {
 					// 睡眠36毫秒，36毫秒可以保证坦克的信息已经判断过一次了
 					this.sleep(36);
 					// 如果我的坦克在敌人坦克的正西方
-					if (this.getMyTankLocation() == Direction.WEST) {
-						this.setDirect(Direction.WEST);
-						this.enemyGoWest();
+					if (getMyTankLocation() == Direction.WEST) {
+						setDirect(Direction.WEST);
+						enemyGoWest();
 					}
 					// 如果我的坦克在敌人坦克的正东方
-					if (this.getMyTankLocation() == Direction.EAST) {
-						this.setDirect(Direction.EAST);
-						this.enemyGoEast();
+					if (getMyTankLocation() == Direction.EAST) {
+						setDirect(Direction.EAST);
+						enemyGoEast();
 					}
 					// 如果我的坦克在敌人坦克的正南方
-					if (this.getMyTankLocation() == Direction.SOUTH) {
-						this.setDirect(Direction.SOUTH);
-						this.enemyGoSouth();
+					if (getMyTankLocation() == Direction.SOUTH) {
+						setDirect(Direction.SOUTH);
+						enemyGoSouth();
 					}
 					// 如果我的坦克在敌人坦克的正北方
-					if (this.getMyTankLocation() == Direction.NORTH) {
-						this.enemyGoNorth();
+					if (getMyTankLocation() == Direction.NORTH) {
+						enemyGoNorth();
 					}
 					// 如果出界或者重叠的话 选择其他方向 跳出
-					if (this.getY() <= 20 || this.isOverlapNo() == true) {
-						this.setDirect(this.getRandomDirect(Direction.SOUTH,
+					if (getY() <= 20 || isOverlapNo() == true) {
+						setDirect(getRandomDirect(Direction.SOUTH,
 								Direction.WEST, Direction.EAST));
 						break;
 					}
 					// 如果现在坦克的方向不是北方，跳出
-					if (this.getDirect() != Direction.NORTH)
+					if (getDirect() != Direction.NORTH)
 						break;
 					// 如果不重叠，前进
-					if (this.isOverlapYes() == false)
-						this.goNorth();
+					if (isOverlapYes() == false)
+						goNorth();
 				}
 				break;
 			case Direction.SOUTH:
 				for (;;) {
 					this.sleep(36);
-					if (this.getMyTankLocation() == Direction.WEST) {
-						this.setDirect(Direction.WEST);
-						this.enemyGoWest();
+					if (getMyTankLocation() == Direction.WEST) {
+						setDirect(Direction.WEST);
+						enemyGoWest();
 					}
-					if (this.getMyTankLocation() == Direction.EAST) {
-						this.setDirect(Direction.EAST);
-						this.enemyGoEast();
+					if (getMyTankLocation() == Direction.EAST) {
+						setDirect(Direction.EAST);
+						enemyGoEast();
 					}
-					if (this.getMyTankLocation() == Direction.NORTH) {
-						this.setDirect(Direction.NORTH);
-						this.enemyGoNorth();
+					if (getMyTankLocation() == Direction.NORTH) {
+						setDirect(Direction.NORTH);
+						enemyGoNorth();
 					}
-					if (this.getMyTankLocation() == Direction.SOUTH) {
-						this.enemyGoSouth();
+					if (getMyTankLocation() == Direction.SOUTH) {
+						enemyGoSouth();
 					}
-					if (this.getY() >= GamePanel.HEIGHT - 20
-							|| this.isOverlapNo() == true) {
-						this.setDirect(this.getRandomDirect(Direction.NORTH,
+					if (getY() >= GamePanel.HEIGHT - 20
+							|| isOverlapNo() == true) {
+						setDirect(getRandomDirect(Direction.NORTH,
 								Direction.WEST, Direction.EAST));
 						break;
 					}
-					if (this.getDirect() != Direction.SOUTH)
+					if (getDirect() != Direction.SOUTH)
 						break;
-					if (this.isOverlapYes() == false)
-						this.goSouth();
+					if (isOverlapYes() == false)
+						goSouth();
 				}
 				break;
 			case Direction.WEST:
 				for (;;) {
 					this.sleep(36);
-					if (this.getMyTankLocation() == Direction.NORTH) {
-						this.setDirect(Direction.NORTH);
-						this.enemyGoNorth();
+					if (getMyTankLocation() == Direction.NORTH) {
+						setDirect(Direction.NORTH);
+						enemyGoNorth();
 					}
-					if (this.getMyTankLocation() == Direction.EAST) {
-						this.setDirect(Direction.EAST);
-						this.enemyGoEast();
+					if (getMyTankLocation() == Direction.EAST) {
+						setDirect(Direction.EAST);
+						enemyGoEast();
 					}
-					if (this.getMyTankLocation() == Direction.SOUTH) {
-						this.setDirect(Direction.SOUTH);
-						this.enemyGoSouth();
+					if (getMyTankLocation() == Direction.SOUTH) {
+						setDirect(Direction.SOUTH);
+						enemyGoSouth();
 					}
-					if (this.getMyTankLocation() == Direction.WEST) {
-						this.enemyGoWest();
+					if (getMyTankLocation() == Direction.WEST) {
+						enemyGoWest();
 					}
-					if (this.getX() <= 20 || this.getY() <= 20
-							|| this.isOverlapNo() == true) {
-						this.setDirect(this.getRandomDirect(Direction.NORTH,
+					if (getX() <= 20 || getY() <= 20
+							|| isOverlapNo() == true) {
+						setDirect(getRandomDirect(Direction.NORTH,
 								Direction.SOUTH, Direction.EAST));
 						break;
 					}
-					if (this.getDirect() != Direction.WEST)
+					if (getDirect() != Direction.WEST)
 						break;
-					if (this.isOverlapYes() == false)
-						this.goWest();
+					if (isOverlapYes() == false)
+						goWest();
 				}
 				break;
 			case Direction.EAST:
 				for (;;) {
 					this.sleep(36);
-					if (this.getMyTankLocation() == Direction.WEST) {
-						this.setDirect(Direction.WEST);
-						this.enemyGoWest();
+					if (getMyTankLocation() == Direction.WEST) {
+						setDirect(Direction.WEST);
+						enemyGoWest();
 					}
-					if (this.getMyTankLocation() == Direction.NORTH) {
-						this.setDirect(Direction.NORTH);
-						this.enemyGoNorth();
+					if (getMyTankLocation() == Direction.NORTH) {
+						setDirect(Direction.NORTH);
+						enemyGoNorth();
 					}
-					if (this.getMyTankLocation() == Direction.SOUTH) {
-						this.setDirect(Direction.SOUTH);
-						this.enemyGoSouth();
+					if (getMyTankLocation() == Direction.SOUTH) {
+						setDirect(Direction.SOUTH);
+						enemyGoSouth();
 					}
-					if (this.getMyTankLocation() == Direction.EAST) {
-						this.enemyGoEast();
+					if (getMyTankLocation() == Direction.EAST) {
+						enemyGoEast();
 					}
-					if (this.getX() >= GamePanel.WIDTH - 20
-							|| this.getY() <= 20 || this.isOverlapNo() == true) {
-						this.setDirect(this.getRandomDirect(Direction.NORTH,
+					if (getX() >= GamePanel.WIDTH - 20
+							|| getY() <= 20 || isOverlapNo() == true) {
+						setDirect(getRandomDirect(Direction.NORTH,
 								Direction.SOUTH, Direction.WEST));
 						break;
 					}
-					if (this.getDirect() != Direction.EAST)
+					if (getDirect() != Direction.EAST)
 						break;
-					if (this.isOverlapYes() == false)
-						this.goEast();
+					if (isOverlapYes() == false)
+						goEast();
 				}
 				break;
 			}
 			this.sleep(216); // 改变一个方向的话，不要让他很快
-			if (this.isLive() == false) { // 如果坦克死亡的话 该坦克线程结束
+			if (isLive() == false) { // 如果坦克死亡的话 该坦克线程结束
 				break;
 			}
 		}
@@ -230,21 +230,21 @@ public class EnemyTank extends Tank implements Runnable {
 	public boolean isOverlap_(Vector<EnemyTank> enemys, Vector<MyTank> myTanks) {
 		for (int i = 0; i < enemys.size(); i++) { // 依次取出每一个敌人坦克
 			if (this != enemys.get(i)) {
-				if (this.Overlap(enemys.get(i), 40) == true) { // 判断这两辆坦克是否重叠
-					this.setOverlapNo(true);
+				if (Overlap(enemys.get(i), 40) == true) { // 判断这两辆坦克是否重叠
+					setOverlapNo(true);
 					return true; // 一旦有重叠则返回真
 				}
 			}
 		}
 		for (int j = 0; j < myTanks.size(); j++) { // 依次取出每个我的坦克
-			if (this.Overlap(myTanks.get(j), 40) == true) { // 判断这两辆坦克是否重叠
-				this.setOverlapYes(true); // 面对我的坦克，敌人坦克开炮过去
+			if (Overlap(myTanks.get(j), 40) == true) { // 判断这两辆坦克是否重叠
+				setOverlapYes(true); // 面对我的坦克，敌人坦克开炮过去
 				return true; // 一旦有重叠则返回真
 			}
 		}
 		// 如果前面没有返回的话，说明没重叠，返回假
-		this.setOverlapNo(false);
-		this.setOverlapYes(false);
+		setOverlapNo(false);
+		setOverlapYes(false);
 		return false; // 没有重叠现象则返回假
 	}
 
@@ -254,11 +254,11 @@ public class EnemyTank extends Tank implements Runnable {
 	public void enemyGoWest() {
 		for (;;) {
 			this.sleep(36);
-			if (this.isOverlapNo() == false && this.isOverlapYes() == false) { // 不重叠的话
-				this.goWest();
+			if (isOverlapNo() == false && isOverlapYes() == false) { // 不重叠的话
+				goWest();
 			}
-			if (this.getMyTankLocation() != Direction.WEST) { // 我的坦克不在正西方的时候
-				this.setDirect(this.getMyTankDirect()); // 让敌人坦克与我的坦克方向一致
+			if (getMyTankLocation() != Direction.WEST) { // 我的坦克不在正西方的时候
+				setDirect(getMyTankDirect()); // 让敌人坦克与我的坦克方向一致
 				break;
 			}
 		}
@@ -270,11 +270,11 @@ public class EnemyTank extends Tank implements Runnable {
 	public void enemyGoEast() {
 		for (;;) {
 			this.sleep(36);
-			if (this.isOverlapNo() == false && this.isOverlapYes() == false) {
-				this.goEast();
+			if (isOverlapNo() == false && isOverlapYes() == false) {
+				goEast();
 			}
-			if (this.getMyTankLocation() != Direction.EAST) {
-				this.setDirect(this.getMyTankDirect());
+			if (getMyTankLocation() != Direction.EAST) {
+				setDirect(getMyTankDirect());
 				break;
 			}
 		}
@@ -286,11 +286,11 @@ public class EnemyTank extends Tank implements Runnable {
 	public void enemyGoNorth() {
 		for (;;) {
 			this.sleep(36);
-			if (this.isOverlapNo() == false && this.isOverlapYes() == false) {
-				this.goNorth();
+			if (isOverlapNo() == false && isOverlapYes() == false) {
+				goNorth();
 			}
-			if (this.getMyTankLocation() != Direction.NORTH) {
-				this.setDirect(this.getMyTankDirect());
+			if (getMyTankLocation() != Direction.NORTH) {
+				setDirect(getMyTankDirect());
 				break;
 			}
 		}
@@ -302,11 +302,11 @@ public class EnemyTank extends Tank implements Runnable {
 	public void enemyGoSouth() {
 		for (;;) {
 			this.sleep(36);
-			if (this.isOverlapNo() == false && this.isOverlapYes() == false) {
-				this.goSouth();
+			if (isOverlapNo() == false && isOverlapYes() == false) {
+				goSouth();
 			}
-			if (this.getMyTankLocation() != Direction.SOUTH) {
-				this.setDirect(this.getMyTankDirect());
+			if (getMyTankLocation() != Direction.SOUTH) {
+				setDirect(getMyTankDirect());
 				break;
 			}
 		}
@@ -364,8 +364,8 @@ public class EnemyTank extends Tank implements Runnable {
 					}
 				}
 				if (s == 0) { // 如果s==1说明没有铁块挡住子弹，可以发射
-					this.setShot(true);
-					this.setMyTankLocation(Direction.SOUTH);
+					setShot(true);
+					setMyTankLocation(Direction.SOUTH);
 				}
 			} else { // 我的坦克在正北方
 				int s = 0;
@@ -378,8 +378,8 @@ public class EnemyTank extends Tank implements Runnable {
 					}
 				}
 				if (s == 0) {
-					this.setShot(true);
-					this.setMyTankLocation(Direction.NORTH);
+					setShot(true);
+					setMyTankLocation(Direction.NORTH);
 				}
 			}
 		} else if (Math.abs(myY - enY) < 20 && myY <= 580) { // 如果我的坦克在敌人坦克的正西方或正东方
@@ -395,8 +395,8 @@ public class EnemyTank extends Tank implements Runnable {
 					}
 				}
 				if (s == 0) {
-					this.setShot(true);
-					this.setMyTankLocation(Direction.WEST);
+					setShot(true);
+					setMyTankLocation(Direction.WEST);
 				}
 			} else { // 我的坦克在正东方
 				int s = 0;
@@ -409,13 +409,13 @@ public class EnemyTank extends Tank implements Runnable {
 					}
 				}
 				if (s == 0) {
-					this.setShot(true);
-					this.setMyTankLocation(Direction.EAST);
+					setShot(true);
+					setMyTankLocation(Direction.EAST);
 				}
 			}
 		} else { // 其他情况敌人坦克不能判断我的坦克位置，要完善的话，还可以继续加进去
-			this.setShot(false);
-			this.setMyTankLocation(-1);
+			setShot(false);
+			setMyTankLocation(-1);
 		}
 	}
 	

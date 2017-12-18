@@ -3,6 +3,7 @@
  */
 package cn.edu.hdu.tankbattle.model.map;
 
+import cn.edu.hdu.tankbattle.constant.StuffType;
 import cn.edu.hdu.tankbattle.model.Position;
 
 import java.util.Vector;
@@ -29,7 +30,7 @@ public class Map1 extends Map {
 		positions.add(new Position(200, 310));
 		positions.add(new Position(220, 310));
 		
-		this.initStuff(0, positions);
+		initStuff(StuffType.BRICK, positions);
 	}
 	
 	@Override
@@ -52,7 +53,7 @@ public class Map1 extends Map {
 		positions.add(new Position(380, 310));
 		positions.add(new Position(400, 310));
 		
-		this.initStuff(2, positions);
+		initStuff(StuffType.WATER, positions);
 	}
 	
 	@Override
@@ -82,6 +83,6 @@ public class Map1 extends Map {
 		positions.add(new Position(590, 400));
 		positions.add(new Position(570, 400));
 		
-		this.initStuff(1, positions);
+		initStuff(StuffType.IRON, positions);
 	}
 }

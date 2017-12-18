@@ -23,7 +23,7 @@ public class Map {
 		bricks = new Vector<Brick>();
 		irons = new Vector<Iron>();
 		waters = new Vector<Water>();
-		this.initMaps();
+		initMaps();
 	}
 	
 	public void initMaps() {
@@ -33,10 +33,9 @@ public class Map {
 	}
 	
 	public void initBricks() {}
-	
 	public void initIron() {}
-	
 	public void initWater() {}
+	
 	
 	public void initStuff(int stuffType, Vector<Position> positions) {
 		for(int i = 0; i < positions.size(); i++) {
@@ -76,14 +75,14 @@ public class Map {
 	public Vector<Stuff> getMapStuffs() {
 		Vector<Stuff> stuffs = new Vector<Stuff>();
 		
-		for (int i = 0; i < this.bricks.size(); i++) {
-			stuffs.add(this.bricks.get(i));
+		for (int i = 0; i < bricks.size(); i++) {
+			stuffs.add(bricks.get(i));
 		}
-		for (int j = 0; j < this.waters.size(); j++) {
-			stuffs.add(this.waters.get(j));
+		for (int j = 0; j < waters.size(); j++) {
+			stuffs.add(waters.get(j));
 		}
-		for (int k = 0; k < this.irons.size(); k++) {
-			stuffs.add(this.irons.get(k));
+		for (int k = 0; k < irons.size(); k++) {
+			stuffs.add(irons.get(k));
 		}
 		
 		return stuffs;

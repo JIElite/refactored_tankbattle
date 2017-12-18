@@ -113,10 +113,10 @@ public class GameFrame extends JFrame {
 		gameStop.addActionListener(tankGamePanel); // 游戏面板作为监听者
 		gameHelp.addActionListener(tankGamePanel);
 		aboutGame.addActionListener(tankGamePanel);
-		this.addKeyListener(tankGamePanel); // 游戏面板来作为按键侦听器
+		addKeyListener(tankGamePanel); // 游戏面板来作为按键侦听器
 
 		// 菜单条
-		this.setJMenuBar(jMenuBar);
+		setJMenuBar(jMenuBar);
 
 		// --游戏/Game--菜单
 		jMenuBar.add(game);
@@ -139,7 +139,7 @@ public class GameFrame extends JFrame {
 		help.add(aboutGame);
 
 		// 将panel添加到Frame
-		this.add(tankGamePanel);
+		add(tankGamePanel);
 
 	}
 

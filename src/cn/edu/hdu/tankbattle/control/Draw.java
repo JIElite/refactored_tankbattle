@@ -49,7 +49,7 @@ public class Draw {
 	
 	public void drawMap(Graphics g, Map map, JPanel panel) {
 		Vector<Stuff> stuffs = map.getMapStuffs();
-		this.drawMapStuffs(g, stuffs, panel);
+		drawMapStuffs(g, stuffs, panel);
 	}
 	
 	public void drawMapStuffs(Graphics g, Vector<Stuff> stuffs, JPanel panel) {

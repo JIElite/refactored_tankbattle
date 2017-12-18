@@ -66,36 +66,36 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener {
 			pen.drawBomb(g, resource.getBombs(), this); // 画出爆炸
 			pen.drawInformationPanel(g, this);
 
-			if (this.control.getMyTankNum() == 0) { // 如果我的坦克数量为0
+			if (control.getMyTankNum() == 0) { // 如果我的坦克数量为0
 				g.drawImage(TankGameImages.gameOver, 250, control.getDy(), 100,
 						100, this);
 			}
-			if (this.control.getEnemyTankNum() == 0) { // 如果敌人坦克的数量为0
+			if (control.getEnemyTankNum() == 0) { // 如果敌人坦克的数量为0
 				g.drawImage(TankGameImages.gameWin, 250, control.getDy(), 100,
 						100, this);
 			}
 			if (control.getDy() == 250) {
 				g.fillRect(0, 0, 800, 600);
 				g.setColor(Color.BLUE);
-				if (this.control.getMyTankNum() == 0) {
+				if (control.getMyTankNum() == 0) {
 					g.drawString("失败了！！！", 300, 220);
 				} else {
 					g.drawString("挑战成功，请稍等...", 300, 220);
 				}
 				g.drawString(
-						("敌人坦克死亡数量:" + (8 - this.control.getEnemyTankNum())),
+						("敌人坦克死亡数量:" + (8 - control.getEnemyTankNum())),
 						300, 260);
-				g.drawString("我的坦克死亡总数量:" + this.control.getBeKilled(), 300,
+				g.drawString("我的坦克死亡总数量:" + control.getBeKilled(), 300,
 						280);
 				g.drawString(
 						"我的炮弹消耗总数量:"
-								+ (Control.STARTBULLETNUM - this.control
+								+ (Control.STARTBULLETNUM - control
 										.getMyBulletNum()), 300, 300);
-				g.drawString("敌人坦克剩余数量:" + this.control.getEnemyTankNum(), 300,
+				g.drawString("敌人坦克剩余数量:" + control.getEnemyTankNum(), 300,
 						320);
-				g.drawString("我的坦克剩余总数量:" + this.control.getMyTankNum(), 300,
+				g.drawString("我的坦克剩余总数量:" + control.getMyTankNum(), 300,
 						340);
-				g.drawString("我的炮弹剩余总数量:" + this.control.getMyBulletNum(), 300,
+				g.drawString("我的炮弹剩余总数量:" + control.getMyBulletNum(), 300,
 						360);
 			}
 		} else {
@@ -155,9 +155,8 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener {
 			if (e.getKeyCode() == KeyEvent.VK_X && myTank.isLive()
 					&& myTank.getY() <= 580) {
 				if (myTank.getBullets().size() <= 1
-						&& this.control.getMyBulletNum() > 0) { // 最多颗子弹
-					this.control
-							.setMyBulletNum(this.control.getMyBulletNum() - 1);
+						&& control.getMyBulletNum() > 0) { // 最多颗子弹
+					control.setMyBulletNum(control.getMyBulletNum() - 1);
 					myTank.shot(); // 这时才会往容器中添加子弹对象
 				}
 			}
@@ -193,9 +192,9 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener {
 			if (control.isStart() == false) { // 还没开始
 				control.setStart(true);// 已经开始了
 				control.startGame(resource);
-				this.setVisible(true);
+				setVisible(true);
 			} else if (control.isStop() == false
-					&& this.control.getMyTankNum() != 0) {
+					&& control.getMyTankNum() != 0) {
 				// 暂停
 				control.gameEventStop(resource);
 				JOptionPane.showMessageDialog(null, "游戏已经开始", "提示",
@@ -206,7 +205,7 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener {
 				JOptionPane.showMessageDialog(null, "游戏已经开始", "提示",
 						JOptionPane.INFORMATION_MESSAGE);
 			} else if (control.isStop() == false
-					&& (this.control.getMyTankNum() == 0)) {
+					&& (control.getMyTankNum() == 0)) {
 				control.setStart(true);
 				control.startGame(resource);
 			}
@@ -275,7 +274,7 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener {
 					control.setStart(true);
 					control.setLevel(2);
 					control.startGame(resource);
-					this.setVisible(true);
+					setVisible(true);
 				} else {
 					if (control.isStart() == true) {
 						// 恢复游戏
@@ -302,7 +301,7 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener {
 					control.setStart(true);
 					control.setLevel(3);
 					control.startGame(resource);
-					this.setVisible(true);
+					setVisible(true);
 				} else {
 					if (control.isStart() == true) {
 						// 恢复游戏
@@ -329,7 +328,7 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener {
 					control.setStart(true);
 					control.setLevel(4);
 					control.startGame(resource);
-					this.setVisible(true);
+					setVisible(true);
 				} else {
 					if (control.isStart() == true) {
 						// 恢复游戏
@@ -356,7 +355,7 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener {
 					control.setStart(true);
 					control.setLevel(5);
 					control.startGame(resource);
-					this.setVisible(true);
+					setVisible(true);
 				} else {
 					if (control.isStart() == true) {
 						// 恢复游戏
