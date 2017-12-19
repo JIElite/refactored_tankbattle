@@ -91,21 +91,19 @@ public class Bomb implements IDrawable {
 	}
 	
 	public void draw(Graphics g, JPanel panel) {
+		int bomb_image_index = 0;
 		if (getLifeTime() > 24) { // 生命值21-25
-			g.drawImage(TankGameImages.bomb[0], getX() - l / 2, getY()
-					- l / 2, l, l, panel);
+			bomb_image_index = 0;
 		} else if (getLifeTime() > 18) { // 生命值16-20
-			g.drawImage(TankGameImages.bomb[1], getX() - l / 2, getY()
-					- l / 2, l, l, panel);
+			bomb_image_index = 1;
 		} else if (getLifeTime() > 12) { // 生命值11-15
-			g.drawImage(TankGameImages.bomb[2], getX() - l / 2, getY()
-					- l / 2, l, l, panel);
+			bomb_image_index = 2;
 		} else if (getLifeTime() > 6) { // 生命值6-10
-			g.drawImage(TankGameImages.bomb[3], getX() - l / 2, getY()
-					- l / 2, l, l, panel);
+			bomb_image_index = 3;
 		} else { // 生命值低于6
-			g.drawImage(TankGameImages.bomb[4], getX() - l / 2, getY()
-					- l / 2, l, l, panel);
+			bomb_image_index = 4;
 		}
+		g.drawImage(TankGameImages.bomb[bomb_image_index], getX() - l / 2, getY()
+				- l / 2, l, l, panel);
 	}
 }
