@@ -51,7 +51,7 @@ public abstract class Tank extends Stuff {
 	
 	private int direct;
 	
-	private BulletMaker bulletfactory;
+	private BulletMaker bulletMaker;
 	/**
 	 * 坦克的构造方法
 	 * 
@@ -67,7 +67,7 @@ public abstract class Tank extends Stuff {
 		setDirect(direct);
 		bullets = new Vector<Bullet>();
 		setType(Stuff.TANK);
-		bulletfactory = new BulletMaker();
+		bulletMaker = new BulletMaker();
 	}
 	
 	public abstract Image getImage();
@@ -127,7 +127,7 @@ public abstract class Tank extends Stuff {
 	}
 	
 	public void shot() {
-		Bullet bullet = bulletfactory.makeBullet(this);
+		Bullet bullet = bulletMaker.makeBullet(this);
 		getBullets().add(bullet);
 		Thread t = new Thread(bullet);
 		t.start();
