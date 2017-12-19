@@ -5,10 +5,9 @@ import java.util.Vector;
 
 import javax.swing.JPanel;
 
-import cn.edu.hdu.tankbattle.bullet.Bullet;
-import cn.edu.hdu.tankbattle.bullet.BulletMaker;
 import cn.edu.hdu.tankbattle.constant.Direction;
-import cn.edu.hdu.tankbattle.constant.StuffType;
+import cn.edu.hdu.tankbattle.model.bullet.Bullet;
+import cn.edu.hdu.tankbattle.model.bullet.BulletMaker;
 import cn.edu.hdu.tankbattle.view.GamePanel;
 
 /**
@@ -63,7 +62,7 @@ public abstract class Tank extends Stuff implements IDrawable {
 		super(p);
 		setDirect(direct);
 		bullets = new Vector<Bullet>();
-		setType(StuffType.TANK);
+		setType(Stuff.TANK);
 		bulletfactory = new BulletMaker();
 	}
 	
@@ -129,7 +128,7 @@ public abstract class Tank extends Stuff implements IDrawable {
 		if (getY() > 20) {
 			setY(getY() - speed);
 		} else {
-			setFrontInfomation(StuffType.IRON);
+			setFrontInfomation(Stuff.IRON);
 		}
 	}
 
@@ -141,7 +140,7 @@ public abstract class Tank extends Stuff implements IDrawable {
 		if (getY() < GamePanel.HEIGHT - 20) {
 			setY(getY() + speed);
 		} else {
-			setFrontInfomation(StuffType.IRON); // 碰到边界就相当于碰到铁块
+			setFrontInfomation(Stuff.IRON); // 碰到边界就相当于碰到铁块
 		}
 	}
 
@@ -153,7 +152,7 @@ public abstract class Tank extends Stuff implements IDrawable {
 		if (getX() > 20 && getY() <= GamePanel.HEIGHT - 20) {
 			setX(getX() - speed);
 		} else {
-			setFrontInfomation(StuffType.IRON);
+			setFrontInfomation(Stuff.IRON);
 		}
 	}
 
@@ -166,7 +165,7 @@ public abstract class Tank extends Stuff implements IDrawable {
 				&& getY() <= GamePanel.HEIGHT - 20) {
 			setX(getX() + speed);
 		} else {
-			setFrontInfomation(StuffType.IRON);
+			setFrontInfomation(Stuff.IRON);
 		}
 	}
 

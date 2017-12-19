@@ -5,12 +5,12 @@ import java.util.Vector;
 
 import javax.swing.JPanel;
 
-import cn.edu.hdu.tankbattle.bullet.Bullet;
 import cn.edu.hdu.tankbattle.constant.Direction;
 import cn.edu.hdu.tankbattle.model.Bomb;
 import cn.edu.hdu.tankbattle.model.Stuff;
 import cn.edu.hdu.tankbattle.model.Tank;
 import cn.edu.hdu.tankbattle.model.TankGameImages;
+import cn.edu.hdu.tankbattle.model.bullet.Bullet;
 import cn.edu.hdu.tankbattle.model.map.Map;
 import cn.edu.hdu.tankbattle.view.GamePanel;
 

@@ -2,8 +2,8 @@ package cn.edu.hdu.tankbattle.model.map;
 
 import java.util.Vector;
 
-import cn.edu.hdu.tankbattle.constant.StuffType;
 import cn.edu.hdu.tankbattle.model.Position;
+import cn.edu.hdu.tankbattle.model.Stuff;
 
 
 
@@ -43,7 +43,7 @@ public class Map3 extends Map {
 		positions.add(new Position(290, 310));
 		positions.add(new Position(310, 310));
 		
-		initStuff(StuffType.BRICK, positions);
+		initStuff(Stuff.BRICK, positions);
 	}
 	
 }

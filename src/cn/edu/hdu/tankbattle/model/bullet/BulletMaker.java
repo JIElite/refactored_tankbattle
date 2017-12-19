@@ -1,4 +1,4 @@
-package cn.edu.hdu.tankbattle.bullet;
+package cn.edu.hdu.tankbattle.model.bullet;
 
 import cn.edu.hdu.tankbattle.model.Tank;
 

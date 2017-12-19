@@ -1,7 +1,5 @@
 package cn.edu.hdu.tankbattle.model;
 
-import cn.edu.hdu.tankbattle.constant.StuffType;
-
 /**
  * 砖块类，由东西类继承而来
  * 
@@ -13,7 +11,7 @@ import cn.edu.hdu.tankbattle.constant.StuffType;
 public class Brick extends Stuff {
 	public Brick(Position p) {
 		super(p);
-		setType(StuffType.BRICK);
+		setType(Stuff.BRICK);
 		setWidth(20);
 		setHeight(20);
 	}

@@ -1,6 +1,5 @@
 package cn.edu.hdu.tankbattle.model;
 
-import cn.edu.hdu.tankbattle.constant.StuffType;
 
 /**
  * 水对象，继承自东西类
@@ -13,7 +12,7 @@ public class Water extends Stuff {
 	
 	public Water(Position p) {
 		super(p);
-		setType(StuffType.WATER);
+		setType(Stuff.WATER);
 		setWidth(20);
 		setHeight(20);
 	}
