@@ -2,10 +2,10 @@ package cn.edu.hdu.tankbattle.bullet;
 
 import cn.edu.hdu.tankbattle.model.Tank;
 
-public class BulletFactory {
+public class BulletMaker {
 	private BulletFlyBehaviorFactory flyFactory;
 	
-	public BulletFactory() {
+	public BulletMaker() {
 		flyFactory = new BulletFlyBehaviorFactory();
 	}
 	

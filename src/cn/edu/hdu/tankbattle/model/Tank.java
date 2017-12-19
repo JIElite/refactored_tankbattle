@@ -6,7 +6,7 @@ import java.util.Vector;
 import javax.swing.JPanel;
 
 import cn.edu.hdu.tankbattle.bullet.Bullet;
-import cn.edu.hdu.tankbattle.bullet.BulletFactory;
+import cn.edu.hdu.tankbattle.bullet.BulletMaker;
 import cn.edu.hdu.tankbattle.constant.Direction;
 import cn.edu.hdu.tankbattle.constant.StuffType;
 import cn.edu.hdu.tankbattle.view.GamePanel;
@@ -48,7 +48,7 @@ public abstract class Tank extends Stuff implements IDrawable {
 	
 	private int direct;
 	
-	private BulletFactory bulletfactory;
+	private BulletMaker bulletfactory;
 	/**
 	 * 坦克的构造方法
 	 * 
@@ -64,7 +64,7 @@ public abstract class Tank extends Stuff implements IDrawable {
 		setDirect(direct);
 		bullets = new Vector<Bullet>();
 		setType(StuffType.TANK);
-		bulletfactory = new BulletFactory();
+		bulletfactory = new BulletMaker();
 	}
 	
 	public void setDirect(int direct) {
