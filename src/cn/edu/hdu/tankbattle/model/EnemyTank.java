@@ -1,13 +1,11 @@
 package cn.edu.hdu.tankbattle.model;
 
 import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.Image;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.Vector;
 
-import javax.swing.JPanel;
 
 import cn.edu.hdu.tankbattle.constant.Direction;
 import cn.edu.hdu.tankbattle.model.map.Map;
@@ -52,6 +50,7 @@ public class EnemyTank extends Tank implements Runnable {
 	 */
 	public EnemyTank(Position p, int direct) {
 		super(p, direct);
+		hp_color = Color.gray;
 		setSpeed(4);
 		setDirect(Direction.NORTH);
 		setHealthPoint(10);
@@ -63,13 +62,9 @@ public class EnemyTank extends Tank implements Runnable {
 		timer = new Timer();
 		timer.schedule(task, 0, 500);
 	}
-
-	public void draw(Graphics g, JPanel panel) {
-		Image image;
-		image = TankGameImages.enemyTankImg[getDirect()];
-		g.setColor(Color.gray);
-		g.drawImage(image, getX() - 20, getY() - 20, 40, 40, panel);
-		g.fillRect(getX() - 20, getY() - 30, getHealthPoint() * 4, 5);
+	
+	public Image getImage() {
+		return TankGameImages.enemyTankImg[getDirect()];
 	}
 		
 	@Override

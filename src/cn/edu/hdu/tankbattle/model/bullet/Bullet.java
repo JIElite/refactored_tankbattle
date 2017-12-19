@@ -17,7 +17,7 @@ import cn.edu.hdu.tankbattle.view.GamePanel;
  *
  */
 public class Bullet implements Runnable, IDrawable {
-	private int speed;
+	private int speed = 4;
 	private int x;
 	private int y;
 	
@@ -31,9 +31,9 @@ public class Bullet implements Runnable, IDrawable {
 	public Bullet(int x, int y, IBulletFly flyPolicy) {
 		setX(x);
 		setY(y);
-		this.flyPolicy = flyPolicy;
 		setSpeed(4);
 		setFlying(true);
+		this.flyPolicy = flyPolicy;
 		Thread threadBullet = new Thread(this); // 创建子弹线程
 		threadBullet.start();
 	}

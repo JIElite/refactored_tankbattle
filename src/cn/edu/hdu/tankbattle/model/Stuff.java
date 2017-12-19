@@ -1,5 +1,8 @@
 package cn.edu.hdu.tankbattle.model;
 
+import java.awt.Graphics;
+
+import javax.swing.JPanel;
 
 /**
  * 东西类，简单的一个对象
@@ -9,7 +12,7 @@ package cn.edu.hdu.tankbattle.model;
  * @version 1.0
  * @since JavaSe-1.6
  */
-public class Stuff {
+public abstract class Stuff implements IDrawable{
 	public static final int BRICK = 0;
 	public static final int IRON = 1;
 	public static final int WATER = 2;
@@ -73,4 +76,6 @@ public class Stuff {
 	public void setHeight(int height) {
 		this.height = height;
 	}
+
+	public abstract void draw(Graphics g, JPanel panel);
 }

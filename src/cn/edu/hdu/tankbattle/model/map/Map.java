@@ -15,21 +15,18 @@ import cn.edu.hdu.tankbattle.model.Water;
  *
  */
 public class Map {
-	protected Vector<Brick> bricks;
-	protected Vector<Iron> irons;
-	protected Vector<Water> waters;
+	protected Vector<Brick> bricks = new Vector<Brick>();
+	protected Vector<Iron> irons = new Vector<Iron>();
+	protected Vector<Water> waters = new Vector<Water>();
 
 	public Map() {
-		bricks = new Vector<Brick>();
-		irons = new Vector<Iron>();
-		waters = new Vector<Water>();
 		initMaps();
 	}
 	
 	public void initMaps() {
-		this.initBricks();
-		this.initIron();
-		this.initWater();
+		initBricks();
+		initIron();
+		initWater();
 	}
 	
 	public void initBricks() {}
@@ -84,7 +81,6 @@ public class Map {
 		for (int k = 0; k < irons.size(); k++) {
 			stuffs.add(irons.get(k));
 		}
-		
 		return stuffs;
 	}
 }

@@ -54,9 +54,7 @@ public class Draw {
 	
 	public void drawMapStuffs(Graphics g, Vector<Stuff> stuffs, JPanel panel) {
 		for (int i = 0; i < stuffs.size(); i++) {
-			Stuff stuff = stuffs.get(i);
-			g.drawImage(TankGameImages.stuffImg[stuff.getType()],
-					stuff.getX() - 10, stuff.getY() - 10, 20, 20, panel);
+			stuffs.get(i).draw(g, panel);
 		}
 	}
 		

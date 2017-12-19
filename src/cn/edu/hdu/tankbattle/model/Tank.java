@@ -1,6 +1,8 @@
 package cn.edu.hdu.tankbattle.model;
 
+import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.util.Vector;
 
 import javax.swing.JPanel;
@@ -17,7 +19,7 @@ import cn.edu.hdu.tankbattle.view.GamePanel;
  * @version 1.0
  * @since JavaSe-1.6
  */
-public abstract class Tank extends Stuff implements IDrawable {
+public abstract class Tank extends Stuff {
 	/**
 	 * 坦克的移动速度
 	 */
@@ -45,6 +47,8 @@ public abstract class Tank extends Stuff implements IDrawable {
 
 	private int HealthPoint;
 	
+	protected Color hp_color = Color.black;
+	
 	private int direct;
 	
 	private BulletMaker bulletfactory;
@@ -66,6 +70,16 @@ public abstract class Tank extends Stuff implements IDrawable {
 		bulletfactory = new BulletMaker();
 	}
 	
+	public abstract Image getImage();
+	
+	public void draw(Graphics g, JPanel panel) {
+		// draw HP bar
+		g.setColor(hp_color);
+		g.fillRect(getX() - 20, getY() - 30, getHealthPoint() * 4, 5);
+		// draw Tank Image
+		g.drawImage(getImage(), getX() - 20, getY() - 20, 40, 40, panel);
+	}
+	
 	public void setDirect(int direct) {
 		this.direct = direct;
 	}
@@ -73,7 +87,6 @@ public abstract class Tank extends Stuff implements IDrawable {
 	public int getDirect() {
 		return direct;
 	}
-
 	
 	public void setHealthPoint(int hp) {
 		this.HealthPoint = hp;
@@ -287,5 +300,4 @@ public abstract class Tank extends Stuff implements IDrawable {
 		this.frontInfomation = frontInfomation;
 	}
 	
-	public abstract void draw(Graphics g, JPanel panel);
 }
